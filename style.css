@@ -99,6 +99,17 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   max-width: 34em;
 }
 
+.category-heading {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 48px 0 4px;
+}
+
+.category-group:first-child .category-heading { margin-top: 0; }
+
 .article-list { list-style: none; padding: 0; margin: 0; }
 
 .article-list li {
@@ -164,10 +175,16 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 
 .article-body p { margin: 0 0 1.2em; }
 
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.5em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
 .article-body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5em 0;
+  margin: 0;
   font-size: 0.92rem;
 }
 
