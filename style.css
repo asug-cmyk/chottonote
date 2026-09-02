@@ -191,6 +191,16 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 .product-card h3 { margin-top: 0; color: var(--ink-on-light); }
 .product-card p { color: var(--ink-on-light); }
 
+.product-card img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 0 14px;
+}
+
 .cta-link {
   display: inline-flex;
   align-items: center;
