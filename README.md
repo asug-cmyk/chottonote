@@ -22,7 +22,7 @@ Vercelの無料枠で完全に0円運用できます。
 
 ## 新しい記事を追加するとき
 
-1. `articles/sample-article.html` をコピーして新しいファイル名にする(例: `articles/cable-tray-hikaku.html`)
+1. 既存の記事(例: `articles/desk-cable-tray-hikaku.html`)をコピーして新しいファイル名にする
 2. タイトル・本文・比較表・Amazonリンクを差し替える
 3. `index.html` の `<ul class="article-list">` 内に新しい `<li>` を追加してリンクする
 4. `sitemap.xml` にも新しいURLを1行追加する
