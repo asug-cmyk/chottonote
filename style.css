@@ -235,6 +235,22 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 
 .cta-link:hover { opacity: 0.82; transform: translateY(-1px); text-decoration: none; }
 
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.related-articles li {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 18px;
+}
+
+.related-articles a { color: var(--ink); font-weight: 600; }
+
 .disclosure-note {
   font-size: 0.82rem;
   color: var(--ink-on-light);
