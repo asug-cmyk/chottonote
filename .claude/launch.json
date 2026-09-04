@@ -4,7 +4,7 @@
     {
       "name": "amazon-blog-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4173"],
+      "runtimeArgs": ["-m", "http.server", "4173", "--directory", "/Users/asami.sugiyama/Desktop/Claude Project/Amazon"],
       "port": 4173
     }
   ]
