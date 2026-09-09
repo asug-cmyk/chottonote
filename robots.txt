@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://asdevstudio.com/blog/sitemap.xml
+Sitemap: https://blog.asdevstudio.com/sitemap.xml
