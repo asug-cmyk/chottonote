@@ -14,6 +14,9 @@ Posted: wireless-charger (2026-09-04 16:00 JST)
 - [ ] kitchen-gomibako
 - [ ] monohoshi-rack
 - [ ] denki-kettle
+- [ ] kashitsuki
+- [ ] cordless-vacuum
+- [ ] air-purifier
 
 ## Post text (copy the "next" unposted item's block into the compose box exactly as-is)
 
@@ -96,3 +99,27 @@ https://blog.asdevstudio.com/articles/monohoshi-rack-hikaku.html
 https://blog.asdevstudio.com/articles/denki-kettle-hikaku.html
 
 #キッチン用品 #電気ケトル
+
+### kashitsuki
+乾燥する季節、加湿器選びで意外と迷いませんか。
+
+加湿方式とお手入れのしやすさで選ぶ加湿器を4製品比較しました。
+https://blog.asdevstudio.com/articles/kashitsuki-hikaku.html
+
+#生活家電 #加湿器
+
+### cordless-vacuum
+コードレス掃除機、吸引力と稼働時間で使い勝手が結構変わります。
+
+4製品を吸引力と稼働時間で比較しました。
+https://blog.asdevstudio.com/articles/cordless-vacuum-hikaku.html
+
+#生活家電 #コードレス掃除機
+
+### air-purifier
+花粉やハウスダスト、空気清浄機の適用畳数って意外と見落としがちです。
+
+適用畳数と集じん性能で選ぶ空気清浄機を4製品比較しました。
+https://blog.asdevstudio.com/articles/air-purifier-hikaku.html
+
+#生活家電 #空気清浄機
