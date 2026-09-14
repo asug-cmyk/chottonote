@@ -4,7 +4,7 @@ Posted: wireless-charger (2026-09-04 16:00 JST)
 
 ## Queue — post top-to-bottom, mark `[x]` and add the timestamp when posted
 
-- [ ] desk-cable-tray
+- [x] desk-cable-tray — posted 2026-09-13 19:05 JST
 - [ ] desk-light
 - [ ] genkan-tsupparirack
 - [ ] genkan-bench
