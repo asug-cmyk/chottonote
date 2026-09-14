@@ -188,6 +188,8 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   border-collapse: collapse;
   margin: 0;
   font-size: 0.92rem;
+  background: var(--paper-raised);
+  color: var(--ink-on-light);
 }
 
 .article-body th, .article-body td {
@@ -195,9 +197,13 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   padding: 10px 12px;
   text-align: left;
   white-space: nowrap;
+  color: var(--ink-on-light);
 }
 
-.article-body th { background: var(--surface-soft); font-weight: 600; }
+.article-body th { background: rgba(65, 90, 119, 0.1); font-weight: 700; }
+
+.article-body table a { color: var(--accent-strong); font-weight: 600; }
+.article-body table a:hover { color: var(--ink-black); }
 
 .product-card {
   background: var(--paper-raised);
