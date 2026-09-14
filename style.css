@@ -176,6 +176,14 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 
 .article-body p { margin: 0 0 1.2em; }
 
+.article-body strong {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 .table-scroll {
   overflow-x: auto;
   margin: 1.5em 0;
@@ -206,6 +214,11 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   text-align: left;
   white-space: nowrap;
   color: var(--ink-on-light);
+}
+
+.article-body td {
+  white-space: normal;
+  min-width: 90px;
 }
 
 .article-body th { background: rgba(65, 90, 119, 0.1); font-weight: 700; }
