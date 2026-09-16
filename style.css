@@ -1,19 +1,19 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --ink-black: #0d1b2a;
   --prussian-blue: #1b263b;
   --dusk-blue: #415a77;
   --dusty-denim: #778da9;
   --alabaster-grey: #e0e1dd;
 
-  --paper: #1a2c46;
-  --paper-raised: var(--alabaster-grey);
-  --surface-soft: #16233a;
-  --ink: var(--alabaster-grey);
+  --paper: #f5f7fb;
+  --paper-raised: #ffffff;
+  --surface-soft: #eef2f9;
+  --ink: #14233a;
   --ink-on-light: var(--ink-black);
-  --ink-soft: var(--dusty-denim);
-  --line: rgba(119, 141, 169, 0.22);
-  --accent: var(--dusty-denim);
+  --ink-soft: #52678a;
+  --line: rgba(65, 90, 119, 0.18);
+  --accent: #2f4a6e;
   --accent-strong: var(--dusk-blue);
   --ochre: var(--dusty-denim);
 
@@ -29,8 +29,8 @@ body {
   margin: 0;
   background: var(--paper);
   background-image:
-    radial-gradient(circle at 15% 0%, rgba(65, 90, 119, 0.35), transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(27, 38, 59, 0.6), transparent 40%);
+    radial-gradient(circle at 15% 0%, rgba(65, 90, 119, 0.07), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(27, 38, 59, 0.05), transparent 40%);
   color: var(--ink);
   font-family: var(--font-sans);
   line-height: 1.8;
@@ -44,10 +44,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  padding: 16px 0;
+  padding: 26px 0;
   position: relative;
-  backdrop-filter: blur(10px);
-  background: rgba(13, 27, 42, 0.55);
+  background: var(--ink-black);
 }
 
 .site-header .wrap {
@@ -66,32 +65,38 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 
 .site-header .brand-logo {
-  height: 40px;
+  height: 80px;
   width: auto;
   display: block;
+}
+
+@media (min-width: 701px) {
+  .site-header .brand-logo {
+    height: 96px;
+  }
 }
 
 .site-header .header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 28px;
 }
 
 .site-header nav.site-nav {
   display: flex;
-  gap: 24px;
+  gap: 34px;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .site-header nav.site-nav a {
-  color: var(--ink-soft);
+  color: var(--dusty-denim);
   position: relative;
   padding-bottom: 4px;
 }
 
-.site-header nav.site-nav a.is-active { color: var(--ink); }
+.site-header nav.site-nav a.is-active { color: var(--alabaster-grey); }
 
 .site-header nav.site-nav a::after {
   content: "";
@@ -106,16 +111,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   transition: transform 0.35s var(--ease);
 }
 
-.site-header nav.site-nav a:hover { color: var(--ink); text-decoration: none; }
+.site-header nav.site-nav a:hover { color: var(--alabaster-grey); text-decoration: none; }
 .site-header nav.site-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 
 .site-header .social-link {
   display: inline-flex;
   align-items: center;
-  color: var(--ink-soft);
+  color: var(--dusty-denim);
   transition: color 0.25s ease;
 }
-.site-header .social-link:hover { color: var(--ink); }
+.site-header .social-link:hover { color: var(--alabaster-grey); }
 
 .site-header .lang-switch {
   display: flex;
@@ -123,14 +128,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   gap: 6px;
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--ink-soft);
+  color: var(--dusty-denim);
   margin-left: 0;
   font-weight: 400;
   white-space: nowrap;
 }
-.site-header .lang-switch a { padding: 2px; color: var(--ink-soft); }
-.site-header .lang-switch a.is-active { color: var(--ink); font-weight: 700; }
-.site-header .lang-switch a:hover { color: var(--ink); text-decoration: none; }
+.site-header .lang-switch a { padding: 2px; color: var(--dusty-denim); }
+.site-header .lang-switch a.is-active { color: var(--alabaster-grey); font-weight: 700; }
+.site-header .lang-switch a:hover { color: var(--alabaster-grey); text-decoration: none; }
 .site-header .lang-switch .sep { opacity: 0.5; }
 
 .site-header .nav-toggle {
@@ -150,7 +155,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--ink);
+  background: var(--alabaster-grey);
   transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
 }
 .site-header.is-nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -204,7 +209,7 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 .category-heading {
   font-size: 1.4rem;
   letter-spacing: -0.01em;
-  color: var(--alabaster-grey);
+  color: var(--ink);
   font-weight: 800;
   margin: 56px 0 10px;
   padding-bottom: 10px;
@@ -427,7 +432,7 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 .article-body table tr.rank-1 td { background: rgba(255, 153, 0, 0.16); }
 
 .article-body table tr.rank-1 td:nth-child(3)::after {
-  content: "編集部イチオシ";
+  content: "オススメ！";
   display: inline-block;
   margin-left: 8px;
   padding: 2px 9px;
@@ -666,17 +671,17 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
 /* Landing-page-style structured sections */
 .stat-callout {
   display: inline-block;
-  background: rgba(65, 90, 119, 0.25);
+  background: rgba(65, 90, 119, 0.1);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 10px 18px;
   font-size: 0.88rem;
   line-height: 1.6;
-  color: var(--alabaster-grey);
+  color: var(--ink);
   margin: 0 0 16px;
 }
 
-.stat-callout strong { color: var(--alabaster-grey); font-size: 1.05rem; }
+.stat-callout strong { color: var(--ink); font-size: 1.05rem; }
 
 .trust-checklist {
   display: flex;
@@ -731,13 +736,13 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
 .pain-point-card p { margin: 0; color: var(--dusk-blue); font-size: 0.92rem; }
 
 .pain-point-summary {
-  background: rgba(65, 90, 119, 0.18);
+  background: rgba(65, 90, 119, 0.08);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 16px 20px;
   text-align: center;
   font-weight: 700;
-  color: var(--alabaster-grey);
+  color: var(--ink);
   margin-top: 4px;
 }
 
@@ -788,7 +793,7 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
   height: 46px;
   border-radius: 50%;
   border: 2px solid var(--accent-strong);
-  color: var(--alabaster-grey);
+  color: var(--ink);
   font-weight: 800;
   font-size: 1.1rem;
   margin: 0 auto 10px;
