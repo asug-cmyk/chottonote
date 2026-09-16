@@ -32,11 +32,29 @@
 
 <header class="site-header">
   <div class="wrap">
-    <p class="site-title"><a href="/en/">Everyday Compare Notes</a></p>
-    <p class="site-tagline">Real comparisons for the everyday things you can't decide on <a class="lang-switch" href="/articles/monitor-arm-hikaku.html">日本語</a></p>
+    <a class="brand" href="/en/">
+      <img class="brand-logo" src="/assets/asdev-logo.png" alt="ASDEV Studio" />
+    </a>
+    <div class="header-right">
+      <nav class="site-nav">
+        <a href="https://www.asdevstudio.com/en/projects">Projects</a>
+        <a href="https://www.asdevstudio.com/en/cliparts">ClipArts</a>
+        <a href="/en/" class="is-active">Blog</a>
+        <a href="https://www.asdevstudio.com/en/#about">About</a>
+        <a href="https://www.asdevstudio.com/en/#contact">Contact</a>
+      </nav>
+      <a class="social-link" href="https://x.com/asdevstudio" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.9 2.4h3.3l-7.2 8.2L23.6 21h-6.2l-4.9-6.4L6.8 21H3.5l7.7-8.8L2 2.4h6.3l4.4 5.8 6.2-5.8Zm-2.2 16.9h1.8L8.1 4.3H6.2l10.5 15Z"/></svg>
+      </a>
+      <div class="lang-switch">
+        <a href="/articles/monitor-arm-hikaku.html">JA</a>
+        <span class="sep">/</span>
+        <a href="/en/articles/monitor-arm-hikaku.html" class="is-active">EN</a>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
-
 <main>
   <article>
     <nav class="breadcrumb" aria-label="breadcrumb">
@@ -281,6 +299,7 @@
   <p>&copy; 2026 Everyday Compare Notes</p>
 </footer>
 
+<script src="/header.js" defer></script>
 <script src="/toc.js" defer></script>
 </body>
 </html>
