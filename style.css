@@ -202,6 +202,41 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 .toc a:hover { color: var(--accent); }
 
 /* Article page */
+.article-eyecatch {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 20px 24px;
+  border-radius: 4px 18px 18px 18px;
+  border: 1px solid var(--line);
+  background-image:
+    linear-gradient(135deg, var(--prussian-blue), var(--dusk-blue)),
+    radial-gradient(circle at 92% 15%, rgba(224, 225, 221, 0.2), transparent 55%),
+    radial-gradient(circle at 8% 115%, rgba(224, 225, 221, 0.12), transparent 50%);
+}
+
+.eyecatch-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 3px 12px 12px 12px;
+  background: var(--alabaster-grey);
+  color: var(--ink-black);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.eyecatch-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--alabaster-grey);
+}
+
 .article-header { margin-bottom: 36px; }
 
 .article-header h1 {
@@ -573,4 +608,7 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
 
 @media (max-width: 480px) {
   .article-header h1 { font-size: 1.5rem; }
+  .article-eyecatch { padding: 16px 18px; gap: 12px; }
+  .eyecatch-badge { width: 40px; height: 40px; font-size: 1.1rem; }
+  .eyecatch-label { font-size: 0.85rem; }
 }
