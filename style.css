@@ -237,6 +237,19 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   text-underline-offset: 3px;
 }
 
+.table-hint {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+@media (max-width: 700px) {
+  .table-hint { display: flex; }
+}
+
 .table-scroll {
   overflow-x: auto;
   margin: 1.5em 0;
