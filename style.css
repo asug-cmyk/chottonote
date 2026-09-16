@@ -83,10 +83,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   font-weight: 800;
 }
 
+html[lang="en"] .site-title a::before {
+  content: "E";
+}
+
 .site-tagline {
   font-size: 0.85rem;
   color: var(--ink-soft);
   margin: 0;
+}
+
+.lang-switch {
+  margin-left: 8px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
