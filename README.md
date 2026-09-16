@@ -29,6 +29,10 @@ Vercelの無料枠で完全に0円運用できます。
 5. `REPLACE-WITH-YOUR-DOMAIN` の部分を実際のVercel URLに置き換える(全ファイル共通)
 6. git commit & push すれば自動で反映される(Vercelは push するだけで自動デプロイ)
 
+## 更新日の運用
+
+価格・在庫・仕様を再確認したときは、記事の `公開日: ... / 更新日: ...` の更新日部分を書き換える。チェック頻度・記事ごとの次回確認予定は [CONTENT_CHECKLIST.md](CONTENT_CHECKLIST.md) を参照。
+
 ## 注意点
 
 - `<a class="cta-link" href="#">` の `#` の部分に、実際のAmazonアソシエイトリンクを入れてください

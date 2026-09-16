@@ -158,6 +158,28 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   font-size: 0.95rem;
 }
 
+.toc {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 0 0 2.2em;
+  background: var(--surface-soft);
+}
+
+.toc-title {
+  margin: 0 0 10px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.toc ul { margin: 0; padding-left: 1.2em; }
+.toc li { margin-bottom: 6px; font-size: 0.9rem; }
+.toc a { color: var(--ink); }
+.toc a:hover { color: var(--accent); }
+
 /* Article page */
 .article-header { margin-bottom: 36px; }
 
@@ -235,6 +257,28 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 
 .article-body table a { color: var(--accent-strong); font-weight: 600; }
 .article-body table a:hover { color: var(--ink-black); }
+
+.article-body table tr.rank-1 { background: rgba(255, 153, 0, 0.16); }
+.article-body table tr.rank-1 th,
+.article-body table tr.rank-1 td { background: rgba(255, 153, 0, 0.16); }
+
+.article-body table tr.rank-1 td:nth-child(3)::after {
+  content: "編集部イチオシ";
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent-strong);
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
+  content: "Editor's Pick";
+}
 
 .product-card {
   background: var(--paper-raised);
@@ -401,6 +445,25 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
 @media (max-width: 560px) {
   .pros-cons { grid-template-columns: 1fr; }
 }
+
+.quick-pick {
+  background: var(--paper-raised);
+  color: var(--ink-on-light);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.quick-pick-label {
+  margin: 0 0 12px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--ink-on-light);
+}
+
+.quick-pick .cta-group { justify-content: center; margin-top: 0; }
 
 .related-articles ul {
   list-style: none;
