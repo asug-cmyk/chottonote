@@ -226,8 +226,11 @@ main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
   border-radius: 3px 12px 12px 12px;
   background: var(--alabaster-grey);
   color: var(--ink-black);
-  font-size: 1.25rem;
-  font-weight: 800;
+}
+
+.eyecatch-badge svg {
+  width: 24px;
+  height: 24px;
 }
 
 .eyecatch-label {
@@ -609,6 +612,7 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
 @media (max-width: 480px) {
   .article-header h1 { font-size: 1.5rem; }
   .article-eyecatch { padding: 16px 18px; gap: 12px; }
-  .eyecatch-badge { width: 40px; height: 40px; font-size: 1.1rem; }
+  .eyecatch-badge { width: 40px; height: 40px; }
+  .eyecatch-badge svg { width: 20px; height: 20px; }
   .eyecatch-label { font-size: 0.85rem; }
 }
