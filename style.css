@@ -132,6 +132,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   text-decoration: none;
 }
 
+.site-header nav.site-nav a.contact {
+  padding: 10px 16px;
+  background: var(--ink);
+  color: #fff;
+}
+.site-header nav.site-nav a.contact:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
 .site-header .social-link {
   display: inline-flex;
   align-items: center;
@@ -211,6 +221,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   }
   .site-header nav.site-nav { flex-direction: column; align-items: stretch; gap: 0; font-size: 13px; }
   .site-header nav.site-nav a { padding: 15px 14px; }
+  .site-header nav.site-nav a.contact { display: flex; justify-content: center; margin-top: 4px; }
   .site-header .social-link { justify-content: center; padding: 12px 14px; }
   .site-header .lang-switch { justify-content: center; padding: 12px 14px; font-size: 12px; }
 }
