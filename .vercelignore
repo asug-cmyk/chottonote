@@ -1,0 +1,4 @@
+# Internal files: keep out of the public deployment
+*.md
+.claude
+pipeline
