@@ -38,5 +38,11 @@
 | [jitan-kaden-hitorigurashi-matome](articles/jitan-kaden-hitorigurashi-matome.html) | 2026-09-16 | 2026-09-16 | 2026-12-15 | まとめ記事。参照先6記事の見直しに合わせて確認 |
 | [rakuten-point-kangen-saidaika](articles/rakuten-point-kangen-saidaika.html) | 2026-09-16 | 2026-09-16 | 2026-12-15 | SPU制度など楽天側の仕様変更に注意 |
 | [rakuten-card-kaisetsu](articles/rakuten-card-kaisetsu.html) | 2026-09-16 | 2026-09-16 | 2026-12-15 | 年会費・還元率など楽天カード規約変更に注意 |
+| [robot-vacuum-hikaku](articles/robot-vacuum-hikaku.html) | 2026-09-17 | 2026-09-17 | 2026-12-16 | 楽天リンク未掲載(Amazonのみ)。楽天アフィリエイトリンクを発行でき次第追加 |
+| [mattress-hikaku](articles/mattress-hikaku.html) | 2026-09-17 | 2026-09-17 | 2026-12-16 | 楽天リンク未掲載(Amazonのみ)。寝具編カテゴリの1本目。ブラックフライデー(11/20〜11/30予定)を見据えてX投稿を保留中 |
+| [joshitsuki-hikaku](articles/joshitsuki-hikaku.html) | 2026-09-17 | 2026-09-17 | 2026-12-16 | 楽天リンク未掲載(Amazonのみ)。AEOCKY(¥34,999)はブラックフライデー(11/20〜11/30予定)を見据えてX投稿を保留中 |
+| [joshitsuki-type-hikaku](articles/joshitsuki-type-hikaku.html) | 2026-09-18 | 2026-09-18 | 2026-12-17 | 購入前ガイド記事(方式比較)。EN版なし(hreflangはja+x-defaultのみ)。製品比較は[joshitsuki-hikaku](articles/joshitsuki-hikaku.html)を参照 |
+| [monitor-arm-desk-check](articles/monitor-arm-desk-check.html) | 2026-09-18 | 2026-09-18 | 2026-12-17 | 購入前ガイド記事(取り付け可否チェック)。EN版なし(hreflangはja+x-defaultのみ)。製品比較は[monitor-arm-hikaku](articles/monitor-arm-hikaku.html)を参照 |
+| [cordless-vacuum-paperpack-cyclone](articles/cordless-vacuum-paperpack-cyclone.html) | 2026-09-18 | 2026-09-18 | 2026-12-17 | 購入前ガイド記事(方式比較)。EN版なし(hreflangはja+x-defaultのみ)。製品比較は[cordless-vacuum-hikaku](articles/cordless-vacuum-hikaku.html)を参照 |
 
 新しい記事を追加したら、この表にも1行追加すること。
