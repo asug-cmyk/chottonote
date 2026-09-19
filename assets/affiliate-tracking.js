@@ -1,7 +1,11 @@
 (function () {
   function getArticleSlug() {
-    var match = window.location.pathname.match(/\/articles\/([a-z0-9-]+)\.html/i);
-    return match ? match[1] : window.location.pathname;
+    // The /en/ prefix has to survive into the event, or a JA page and its EN
+    // translation report the same slug and their clicks merge in GA4. Japanese
+    // pages keep returning the bare slug, so the existing series stays comparable.
+    var match = window.location.pathname.match(/^\/(en\/)?articles\/([a-z0-9-]+)\.html$/i);
+    if (!match) return window.location.pathname;
+    return (match[1] ? "en/" : "") + match[2];
   }
 
   function getStore(link) {
