@@ -105,6 +105,21 @@ main { max-width: 1000px; }
   color: var(--ink-soft);
 }
 
+/* ---- The note under a comparison table that carries prices ------------
+   Owner decision 2026-09-22: the table states the price as of publication,
+   so the page has to say that, near the number and not in fine print. */
+.price-note {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--dusty-denim);
+  background: var(--surface-soft);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.price-note strong { color: var(--ink); }
+
 /* ---- Trust checklist as colour-coded ✓ cards ------------------------- */
 .article-body .trust-checklist {
   display: grid;
