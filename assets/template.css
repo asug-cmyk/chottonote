@@ -14,9 +14,11 @@ main { max-width: 1000px; }
   margin: 0 0 4px;
 }
 
-/* ---- Hero: one large product photo + supporting photo rows -----------
+/* ---- Hero: one wide scene photo + the product line-up beside it -------
    Sits above .article-body on purpose: toc.js inserts the table of contents
-   as the first child of .article-body, and the hero belongs above it. */
+   as the first child of .article-body, and the hero belongs above it.
+   The large slot is a generic scene, never a specific product
+   (owner decision 2026-09-22) — product photos live in the minis and cards. */
 .article-hero {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
@@ -34,25 +36,35 @@ main { max-width: 1000px; }
 
 .article-hero-main {
   position: relative;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #fbfcfd, var(--surface-soft));
+  aspect-ratio: 16 / 9;
+  background: var(--surface-soft);
 }
 
 .article-hero-main img {
-  width: 86%;
-  height: 86%;
-  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* A soft scrim so the copy stays readable whatever the photo does
+   in its lower-left corner. */
+.article-hero-main::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to bottom, rgba(16, 43, 73, 0), rgba(16, 43, 73, 0.42));
+  pointer-events: none;
 }
 
 /* Requirement: copy sitting on the photo, as in the reference sample. */
 .article-hero-copy {
   position: absolute;
+  z-index: 1;
   left: 20px;
+  right: 20px;
   bottom: 20px;
-  max-width: 64%;
+  max-width: 74%;
   padding: 15px 18px;
   border-radius: 12px;
   background: rgba(16, 43, 73, 0.9);
@@ -89,8 +101,6 @@ main { max-width: 1000px; }
 /* Guide articles have no product line-up to sit beside the hero, so the
    main photo takes the full width on its own. */
 .article-hero.is-single { grid-template-columns: 1fr; }
-.article-hero.is-single .article-hero-main { min-height: 0; aspect-ratio: 16 / 9; }
-.article-hero.is-single .article-hero-main img { width: 100%; height: 100%; object-fit: cover; }
 
 /* A figure used for a diagram inside the body. */
 .article-figure { margin: 1.6em 0; }
@@ -272,8 +282,7 @@ main { max-width: 1000px; }
 /* ---- Responsive ------------------------------------------------------- */
 @media (max-width: 860px) {
   .article-hero { grid-template-columns: 1fr; }
-  .article-hero-main { min-height: 340px; }
-  .article-hero-copy { max-width: 86%; font-size: 0.95rem; }
+  .article-hero-copy { max-width: 100%; font-size: 0.95rem; }
   .article-body .trust-checklist,
   .article-body .feature-points,
   .products-visual { grid-template-columns: repeat(2, 1fr); }
@@ -285,7 +294,6 @@ main { max-width: 1000px; }
   .article-body .trust-checklist,
   .article-body .feature-points,
   .products-visual { grid-template-columns: 1fr; }
-  .article-hero-main { min-height: 280px; }
   .article-hero-mini { grid-template-columns: 78px 1fr; }
   .article-hero-mini img { width: 72px; height: 72px; }
   .spec-bar { grid-template-columns: 96px 1fr; }
