@@ -47,9 +47,10 @@ main { max-width: 1000px; }
   object-fit: cover;
 }
 
-/* A soft scrim so the copy stays readable whatever the photo does
-   in its lower-left corner. */
-.article-hero-main::after {
+/* A soft scrim so the copy stays readable whatever the photo does in its
+   lower-left corner. Only where there IS HTML copy — the Japanese heroes
+   carry their copy inside the photo and must not be darkened. */
+.article-hero-main:has(.article-hero-copy)::after {
   content: "";
   position: absolute;
   inset: 40% 0 0;
