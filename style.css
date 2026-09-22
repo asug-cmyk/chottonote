@@ -270,19 +270,41 @@ main { max-width: 720px; margin: 0 auto; padding: 24px 24px 80px; }
   margin: 0 0 10px;
 }
 
-.article-list h2 {
+.article-list h2,
+.article-list h3 {
   font-size: 1.2rem;
   margin: 0 0 8px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.article-list h2 a { color: var(--ink); }
+.article-list h2 a,
+.article-list h3 a { color: var(--ink); }
 
 .article-list .excerpt {
   color: var(--ink-soft);
   margin: 0;
   font-size: 0.95rem;
+}
+
+/* Category pages group their articles by what the reader came for:
+   the comparisons that carry the affiliate links, and the explainers
+   that lead into them. */
+.article-group-heading {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+  margin: 40px 0 4px;
+}
+
+.category-group .article-group-heading:first-of-type { margin-top: 28px; }
+
+.article-group-note {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  max-width: 34em;
+  margin: 0 0 12px;
 }
 
 .category-intro {
