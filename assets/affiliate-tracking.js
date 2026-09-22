@@ -42,9 +42,24 @@
     return "";
   }
 
+  // .cta-link is also used for in-site buttons that route a reader from an
+  // explainer into a comparison article. Those are navigation, not affiliate
+  // clicks, and counting them inflates affiliate_click with internal traffic.
+  // Fire only for links that actually leave for a merchant.
+  var MERCHANT_HOSTS = ["www.amazon.co.jp", "amazon.co.jp", "hb.afl.rakuten.co.jp"];
+
+  function isMerchantLink(link) {
+    try {
+      return MERCHANT_HOSTS.indexOf(new URL(link.href, window.location.href).hostname) !== -1;
+    } catch (err) {
+      return false;
+    }
+  }
+
   document.addEventListener("click", function (e) {
     var link = e.target.closest(".cta-link");
     if (!link) return;
+    if (!isMerchantLink(link)) return;
     if (typeof window.gtag !== "function") return;
 
     try {
