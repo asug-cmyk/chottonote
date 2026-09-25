@@ -4,3 +4,7 @@
 pipeline
 scripts
 .github
+
+# ロゴの元データ。assets/asdev-mark.png はここから切り出す。
+# どのページからも参照しないので配信しない（459KB）
+assets/asdev-logo.png
