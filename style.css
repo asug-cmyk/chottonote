@@ -1159,3 +1159,41 @@ html[lang="en"] .article-body table tr.rank-1 td:nth-child(3)::after {
 }
 .source-list li { margin-bottom: 6px; }
 .source-list a { color: var(--accent-strong); }
+
+
+/* カテゴリ見出しの写真帯（オーナー依頼 2026-09-25）
+   各セクションが何の話か、読む前に写真で分かるようにする。
+   写真は上を明るいまま残し、下だけ暗くして白文字を載せる。 */
+.category-heading.has-photo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 140px;
+  padding: 16px 18px;
+  border-bottom: none;
+  border-radius: 14px;
+  overflow: hidden;
+  color: #fff;
+  background-color: #0b1626;
+  background-image:
+    linear-gradient(to top,
+      rgba(8, 18, 32, 0.90) 0%,
+      rgba(8, 18, 32, 0.68) 38%,
+      rgba(8, 18, 32, 0.18) 74%,
+      rgba(8, 18, 32, 0.02) 100%),
+    var(--cat-photo);
+  background-size: cover, cover;
+  background-position: center, center 42%;
+  background-repeat: no-repeat, no-repeat;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.category-heading[data-cat="desk"]       { --cat-photo: url("/assets/categories/blog-cat-desk.jpg"); }
+.category-heading[data-cat="storage"]    { --cat-photo: url("/assets/categories/blog-cat-storage.jpg"); }
+.category-heading[data-cat="kitchen"]    { --cat-photo: url("/assets/categories/blog-cat-kitchen.jpg"); }
+.category-heading[data-cat="appliances"] { --cat-photo: url("/assets/categories/blog-cat-appliances.jpg"); }
+.category-heading[data-cat="bedding"]    { --cat-photo: url("/assets/categories/blog-cat-bedding.jpg"); }
+.category-heading[data-cat="deals"]      { --cat-photo: url("/assets/categories/blog-cat-deals.jpg"); }
+
+@media (max-width: 760px) {
+  .category-heading.has-photo { min-height: 108px; padding: 13px 14px; border-radius: 12px; }
+}
