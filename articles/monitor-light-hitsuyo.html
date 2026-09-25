@@ -1,0 +1,283 @@
+<!--
+  CHOTTO NOTE / monitor-light-hitsuyo
+
+  出典の確認（2026-09-25、blog チャットが出典ページを実際に開いて確認）:
+    [x] 事務所衛生基準規則 第十条 — 一般的な事務作業300ルクス以上・付随的な事務作業150ルクス以上
+        e-Gov 法令API（lawid=347M50002000043）で条文を取得して確認。記事の記述と一致。
+    [x] 厚労省「情報機器作業における労働衛生管理のためのガイドライン」パンフレット
+        （令和元年7月12日付け基発0712第3号にもとづく）— PDF 全10ページを取得し、
+        「ディスプレイと書類を交互に見る作業では、明るさが著しく異ならないように。
+         机上の照度は300ルクス以上が目安」を確認。
+
+  ⚠ 取り下げた記述が2つある（2026-09-25）:
+    - 「JISの照度基準で事務室の推奨照度は750ルクス」
+      → 出典に挙げていた kikakurui.com の無料公開版は表の数値が省略されており、確認できなかった。
+        数値を裏づけられないため、記述ごと削除し、出典欄からも JIS を外した。
+    - 「厚労省ガイドラインはディスプレイ画面上を500ルクス以下としている」
+      → 出典のパンフレット全10ページに「500ルクス」という記述は無い。
+        旧VDT作業ガイドライン（平成14年）由来の数値が混入した可能性がある。削除した。
+
+  モニターライトの対応厚み・湾曲対応は、記事内で具体的な数値を主張していない
+  （「仕様で確認する」と書いているだけ）ため、裏取りは不要と判断した。
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0M993HGXS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L0M993HGXS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>モニターライトは必要？デスクライトとの違いと、いらないケース | CHOTTO NOTE</title>
+<meta name="description" content="モニターライトとデスクライトの違いを、光を当てる位置・デスクの占有面積・画面への映り込みから整理。モニターライトが要るケースと、デスクライトで足りる・買わなくていいケースを分けて解説します。">
+<link rel="canonical" href="https://blog.asdevstudio.com/articles/monitor-light-hitsuyo.html">
+<link rel="alternate" hreflang="ja" href="https://blog.asdevstudio.com/articles/monitor-light-hitsuyo.html">
+<link rel="alternate" hreflang="x-default" href="https://blog.asdevstudio.com/articles/monitor-light-hitsuyo.html">
+<meta property="og:title" content="モニターライトは必要？デスクライトとの違いと、いらないケース | CHOTTO NOTE">
+<meta property="og:description" content="モニターライトとデスクライトの違いを、光を当てる位置・デスクの占有面積・画面への映り込みから整理。モニターライトが要るケースと、デスクライトで足りる・買わなくていいケースを分けて解説します。">
+<meta property="og:url" content="https://blog.asdevstudio.com/articles/monitor-light-hitsuyo.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.png" type="image/png" />
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "CHOTTO NOTE", "item": "https://blog.asdevstudio.com/"}, {"@type": "ListItem", "position": 2, "name": "デスク周辺機器編", "item": "https://blog.asdevstudio.com/category-desk.html"}, {"@type": "ListItem", "position": 3, "name": "モニターライトは必要？デスクライトとの違いと、いらないケース", "item": "https://blog.asdevstudio.com/articles/monitor-light-hitsuyo.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  {"@type": "Question", "name": "モニターライトとデスクライト、両方必要？", "acceptedAnswer": {"@type": "Answer", "text": "両方要ることは多くありません。画面の映り込みが不満ならモニターライト、紙の作業や広い範囲を照らしたいならデスクライトで足ります。紙の作業と画面作業が半々なら、可動範囲の広いデスクライトのほうが応用が利きます。"}},
+  {"@type": "Question", "name": "ノートPCでもモニターライトは使える？", "acceptedAnswer": {"@type": "Answer", "text": "ノートPCの画面上部に載せる構造ではないため、基本的には外付けモニターがある環境向けです。ノートPC単体ならデスクライトが現実的です。"}},
+  {"@type": "Question", "name": "湾曲ディスプレイにも載せられる？", "acceptedAnswer": {"@type": "Answer", "text": "製品によります。湾曲対応をうたっていない製品では、接地が不安定になったり光の当たり方が偏ったりします。対応の可否を仕様で確認してください。"}},
+  {"@type": "Question", "name": "目の疲れは軽くなる？", "acceptedAnswer": {"@type": "Answer", "text": "照明そのものが疲れを取るわけではありませんが、厚生労働省の「情報機器作業における労働衛生管理のためのガイドライン」は、ディスプレイと書類を交互に見る作業で明るさが著しく異ならないようにすることを求めており、机上の照度は300ルクス以上を目安としています。画面だけが明るい暗い部屋での作業を避けるという意味では、手元を足す効果が期待できます。"}},
+  {"@type": "Question", "name": "明るさはどれくらい必要？", "acceptedAnswer": {"@type": "Answer", "text": "作業内容によりますが、目安はあります。事務所衛生基準規則では、一般的な事務作業の作業面で300ルクス以上(付随的な事務作業は150ルクス以上)と定められています。厚生労働省のガイドラインも机上の照度は300ルクス以上を目安とし、画面と書類の明るさが著しく異ならないことを求めています。まず今の作業面がこの範囲に入っているかを確認するのが確実です。"}}
+]}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://www.asdevstudio.com/">
+      <span class="brand-mark"><img class="brand-logo" src="/assets/asdev-mark.png" alt="" /></span><span class="brand-word">AS<span class="dev-tone">DEV</span> Studio</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav">
+        <a href="https://www.asdevstudio.com/projects">Apps</a>
+        <a href="https://www.asdevstudio.com/blog" class="is-active">Blog</a>
+        <a href="https://www.asdevstudio.com/#about">About</a>
+        <a class="contact" href="mailto:asdev.studio00@gmail.com">Contact ↗</a>
+      </nav>
+      <a class="social-link" href="https://x.com/asdevstudio" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.9 2.4h3.3l-7.2 8.2L23.6 21h-6.2l-4.9-6.4L6.8 21H3.5l7.7-8.8L2 2.4h6.3l4.4 5.8 6.2-5.8Zm-2.2 16.9h1.8L8.1 4.3H6.2l10.5 15Z"/></svg>
+      </a>
+      <div class="lang-switch">
+        <a href="/articles/monitor-light-hitsuyo.html" class="is-active">JA</a>
+        <span class="sep">/</span>
+        <a href="/en/">EN</a>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+  <article>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">CHOTTO NOTE</a> <span aria-hidden="true">›</span> <a href="/category-desk.html">デスク周辺機器編</a> <span aria-hidden="true">›</span> <span aria-current="page">モニターライトは必要？デスクライトとの違いと、いらないケース</span>
+    </nav>
+    <div class="article-eyecatch">
+      <span class="eyecatch-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg></span>
+      <span class="eyecatch-label">デスク周辺機器編</span>
+    </div>
+    <div class="article-header">
+      <p class="kicker">購入前ガイド</p>
+      <h1>モニターライトは必要？デスクライトとの違いと、いらないケース</h1>
+      <p class="article-meta">公開日: 2026-09-25 / 更新日: 2026-09-25</p>
+    </div>    <div class="article-body">
+      <p style="font-size:0.8rem;color:var(--ink-soft);">本記事はAmazonアソシエイト・プログラムを含むアフィリエイトプログラムを利用して商品を紹介しています。</p>
+
+      <p>デスクライトを探していると「モニターライト」という、ディスプレイの上に載せる細長い照明が候補に出てきます。見た目は近いのに価格帯は重なっており、どちらを買えばいいのか、そもそも必要なのかが判断しづらい製品です。実はこの2つは<strong>光をどこに当てるかという設計思想が違う</strong>ため、デスクの置き方と作業内容で答えが変わります。ここでは違いを整理し、モニターライトが必要なケースと、デスクライトで足りるケースを分けて解説します。製品ごとの比較は<a href="/articles/desk-light-hikaku.html">デスクライト比較記事</a>で行っています。</p>
+
+      <div class="quick-answer">
+        <p class="quick-answer-label">結論だけ先に知りたい方へ、3つの状況別の答え</p>
+        <div class="feature-points">
+          <div class="feature-card">
+            <span class="feature-badge">画面に照明が映り込んで見づらい人</span>
+            <h3>モニターライトが向いている</h3>
+            <p>モニターライトは光を手元側だけに落とし、画面に光を当てない配光になっています。映り込みが主な不満ならこちらです。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-badge">紙のノートや書類も広げて作業する人</span>
+            <h3>デスクライトが向いている</h3>
+            <p>手元の広い範囲を照らすならデスクライトです。アームで角度と位置を自由に変えられる点も、紙の作業では効いてきます。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-badge">デスクが狭く、置くものを増やしたくない人</span>
+            <h3>モニターライトが向いている</h3>
+            <p>モニターの上に載せるため、デスクの設置面積を使いません。土台を置く場所がないデスクでは現実的な選択肢になります。</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>30秒でわかる比較表</h2>
+      <p class="table-hint">→ 表は横にスクロールできます</p>
+      <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>項目</th><th>モニターライト</th><th>デスクライト</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>設置場所</strong></td><td>モニター上部に載せる(または引っ掛ける)</td><td>デスク上に置く、またはクランプで天板に固定する</td></tr>
+          <tr><td><strong>デスクの占有面積</strong></td><td>ほぼゼロ</td><td>土台またはクランプの分だけ必要</td></tr>
+          <tr><td><strong>照らす範囲</strong></td><td>キーボードから手前の手元中心。横方向はモニター幅が目安</td><td>アームの可動範囲内で自由に調整できる。広い面も照らせる</td></tr>
+          <tr><td><strong>画面への映り込み</strong></td><td>画面に光が当たらない配光になっている製品が多い</td><td>位置によっては画面に映り込むことがある</td></tr>
+          <tr><td><strong>紙の書類作業</strong></td><td>モニター前の範囲を外れると暗くなりやすい</td><td>照らしたい場所へ動かせる</td></tr>
+          <tr><td><strong>取り付けの制約</strong></td><td>モニターの厚み・上部の形状・湾曲に左右される</td><td>クランプ式は天板の厚みと奥行きに左右される</td></tr>
+          <tr><td><strong>主な購入理由</strong></td><td>映り込みを消す / デスクを広く使う</td><td>手元を明るくする / 照らす場所を選ぶ</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>選ぶときに見るべき基準</h2>
+      <div class="feature-points">
+        <div class="feature-card">
+          <span class="feature-badge">POINT 01</span>
+          <h3>今の不満は「画面が見づらい」か「手元が暗い」か</h3>
+          <p>映り込みが不満ならモニターライト、手元の暗さが不満ならデスクライトが基本の対応です。ここを取り違えると買っても解決しません。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">POINT 02</span>
+          <h3>モニターの上部形状と厚み</h3>
+          <p>モニターライトは上部に載せる構造のため、ベゼルの厚みや背面の傾き、湾曲ディスプレイでは載らない・ぐらつくことがあります。対応する厚みの範囲を仕様で確認します。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">POINT 03</span>
+          <h3>デスクの空きスペース</h3>
+          <p>デスクライトは土台かクランプの設置場所が必要です。クランプ式は天板の厚みと、奥に障害物がないかを確認します。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">POINT 04</span>
+          <h3>色温度と明るさを変えられるか</h3>
+          <p>日中の作業と夜の作業では適した色温度が変わります。無段階調光・調色に対応していると使い分けやすくなります。</p>
+        </div>
+      </div>
+
+      <h2>そもそもモニターライトは「必要」なのか</h2>
+      <p>モニターライトは、部屋の照明とモニターだけでは手元が暗くなる環境のために作られた製品です。そのため<strong>部屋の照明で手元が十分に明るく、画面の映り込みも気にならないなら、必要性は高くありません</strong>。逆に、夜に部屋の照明を落として作業する、モニターの前に手元を照らすものがない、画面に天井照明が映り込む、といった条件が重なるほど効果を感じやすくなります。</p>
+      <p>判断の目安になる数値があります。<strong>事務所衛生基準規則</strong>の第十条は、室の作業面の照度を<strong>一般的な事務作業で300ルクス以上</strong>、付随的な事務作業で150ルクス以上と定めています。これは部屋全体ではなく<strong>作業面</strong>の数値です。厚生労働省の「情報機器作業における労働衛生管理のためのガイドライン」も、<strong>机上の照度は300ルクス以上が目安</strong>としたうえで、<strong>ディスプレイと書類を交互に見る作業では明るさが著しく異ならないように</strong>と求めています。つまり、まず手元が300ルクスに届いているか、次に画面と手元の明るさが極端に違っていないか、の2点で考えると判断しやすくなります。</p>
+
+      <h2>こんな人におすすめ・こんな人は他の選択肢も検討を</h2>
+      <div class="pros-cons suitability">
+        <div class="pros">
+          <h3>こんな人におすすめ</h3>
+          <ul>
+            <li>画面に天井照明や窓の光が映り込んで見づらい人</li>
+            <li>デスクが狭く、照明を置くスペースを取りたくない人</li>
+            <li>夜に部屋の照明を落として画面作業をする人</li>
+            <li>モニターの前で手元がはっきり暗くなっている人</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h3>他の選択肢も検討したい人</h3>
+          <ul>
+            <li>紙のノート・書類を広げる作業が中心の人(照らす範囲が足りないことがある)</li>
+            <li>ノートPC単体で作業していて、載せるモニターがない人</li>
+            <li>湾曲ディスプレイや、上部の形状が特殊なモニターを使っている人</li>
+            <li>部屋の照明だけで手元が十分明るく、映り込みも気にならない人</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-aid">
+        <p class="decision-aid-label">迷ったら、この順番で確認</p>
+        <ol>
+          <li><strong>Q1. 不満は画面側か、手元側か?</strong> 画面の映り込みならモニターライト、手元の暗さならデスクライトです。</li>
+          <li><strong>Q2. 紙の書類を広げる?</strong> 広げるならデスクライト。モニター前だけで完結するならモニターライトで足ります。</li>
+          <li><strong>Q3. デスクに土台を置く余裕がある?</strong> ないならモニターライト、またはクランプ式のデスクライトが候補です。</li>
+          <li><strong>Q4. モニターの上部に載せられる形状?</strong> 湾曲や特殊な形状なら、モニターライトは対応品を確認してから選びます。</li>
+        </ol>
+      </div>
+
+      <h2>買わなくていいケース</h2>
+      <p>次のいずれかに当てはまるなら、今の環境のままで問題ありません。</p>
+      <ul class="pre-check-list">
+        <li>部屋の照明だけで手元が十分明るく、影ができていない</li>
+        <li>画面に照明や窓が映り込んでいない</li>
+        <li>すでにデスクライトがあり、位置を変えれば映り込みを避けられる</li>
+        <li>作業が日中中心で、自然光で足りている</li>
+      </ul>
+
+      <h2>購入前チェックリスト</h2>
+      <ul class="pre-check-list">
+        <li>不満が「映り込み」か「手元の暗さ」かを切り分けた</li>
+        <li>(モニターライト)モニター上部の厚み・形状が対応範囲に入っている</li>
+        <li>(デスクライト・クランプ式)天板の厚みと、奥に障害物がないかを確認した</li>
+        <li>調光・調色に対応しているかを確認した</li>
+        <li>電源の取り方(USB給電かACか)と、ケーブルの取り回しを確認した</li>
+      </ul>
+
+      <h2>よくある質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>モニターライトとデスクライト、両方必要？</summary>
+          <p>両方要ることは多くありません。画面の映り込みが不満ならモニターライト、紙の作業や広い範囲を照らしたいならデスクライトで足ります。紙の作業と画面作業が半々なら、可動範囲の広いデスクライトのほうが応用が利きます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>ノートPCでもモニターライトは使える？</summary>
+          <p>ノートPCの画面上部に載せる構造ではないため、基本的には外付けモニターがある環境向けです。ノートPC単体ならデスクライトが現実的です。</p>
+        </details>
+        <details class="faq-item">
+          <summary>湾曲ディスプレイにも載せられる？</summary>
+          <p>製品によります。湾曲対応をうたっていない製品では、接地が不安定になったり光の当たり方が偏ったりします。対応の可否を仕様で確認してください。</p>
+        </details>
+        <details class="faq-item">
+          <summary>目の疲れは軽くなる？</summary>
+          <p>照明そのものが疲れを取るわけではありませんが、厚生労働省の「情報機器作業における労働衛生管理のためのガイドライン」は、ディスプレイと書類を交互に見る作業で<strong>明るさが著しく異ならないようにすること</strong>を求めており、机上の照度は300ルクス以上を目安としています。画面だけが明るい暗い部屋での作業を避けるという意味では、手元を足す効果が期待できます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>明るさはどれくらい必要？</summary>
+          <p>作業内容によりますが、目安はあります。事務所衛生基準規則では、一般的な事務作業の作業面で300ルクス以上(付随的な事務作業は150ルクス以上)と定められています。厚生労働省のガイドラインも机上の照度は300ルクス以上を目安とし、画面と書類の明るさが著しく異ならないことを求めています。まず今の作業面がこの範囲に入っているかを確認するのが確実です。</p>
+        </details>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--ink-soft)">出典・参考情報: <a href="https://www.mhlw.go.jp/content/000580827.pdf" target="_blank" rel="noopener">厚生労働省「情報機器作業における労働衛生管理のためのガイドライン」</a> / <a href="https://elaws.e-gov.go.jp/document?lawid=347M50002000043" target="_blank" rel="noopener">事務所衛生基準規則</a></p>
+
+      <div class="final-cta">
+        <h2>方針が決まったら、製品を比較してみましょう</h2>
+        <p>モニターライトかデスクライトかの方針が決まったら、実際の製品を比較して選びます。デスクライト比較記事では、明るさと色温度を軸に4製品を比較しています。</p>
+        <div class="cta-group">
+          <a class="cta-link" href="/articles/desk-light-hikaku.html">デスクライト比較記事を見る(4製品を比較)</a>
+        </div>
+        <p class="price-check-note">価格・仕様は変更される場合があります。最新情報は各商品ページをご確認ください。</p>
+      </div>
+
+      <h2>関連記事</h2>
+      <div class="related-articles">
+        <ul>
+          <li><a href="/articles/desk-light-hikaku.html">デスクライト比較、明るさと色温度で選ぶ基準</a></li>
+          <li><a href="/articles/monitor-arm-hikaku.html">モニターアーム比較、耐荷重と取り付け方式で選ぶ基準</a></li>
+          <li><a href="/articles/monitor-arm-desk-check.html">モニターアームが取り付けられない机とは？</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <nav>
+    <a href="/disclosure.html">当サイトについて</a>
+    <a href="/privacy.html">プライバシーポリシー</a>
+  </nav>
+  <p>&copy; 2026 CHOTTO NOTE</p>
+</footer>
+
+<script src="/header.js" defer></script>
+<script src="/toc.js" defer></script>
+<script src="/assets/affiliate-tracking.js" defer></script>
+</body>
+</html>
