@@ -1,0 +1,32 @@
+# 記事が「どこかの一覧から抜け落ちる」のを見つける検査。
+#
+# 中身は scripts/check_listings.py。記事ファイル・sitemap.xml・トップページ・
+# カテゴリページの4か所を突き合わせ、1つでもずれていたら赤くなる。
+#
+# ⚠ これは公開を止めるものではありません。Vercel への公開は GitHub の main が
+#    更新された時点で別に走るので、この検査が赤くても公開自体は止まりません。
+#    「気づかないまま放置される」のを防ぐための通知です。
+#    止めたいのではなく気づきたい、というのがここの目的。
+#
+# いつ走るか:
+#   - どのブランチへの push でも  → 本番に出す前、承認をもらう前に気づける（いちばん効く）
+#   - 毎日 05:30 JST（20:30 UTC） → HP が 06:05 JST にこのブログを読みに来る前に見ておく。
+#     カテゴリページの作りが崩れると HP 側が止まって新しい記事が載らなくなるため（D-HP-011）
+#   - 手動実行                    → Actions タブの Run workflow から
+
+name: listings-check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 記事・sitemap・トップページ・カテゴリページの食い違いを検査
+        run: python3 scripts/check_listings.py

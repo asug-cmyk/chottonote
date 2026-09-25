@@ -109,22 +109,36 @@ main { max-width: 1000px; }
    Owner instruction 2026-09-24: the table used to carry one price and two
    shop buttons, so the reader could not tell which shop the price was for.
    Now each shop states its own price next to its own button. */
+.article-body table td.buy-cell { padding: 10px; vertical-align: middle; }
+
+/* each shop is its own bordered box, so the eye pairs the price with the
+   button beside it and never with the row above (owner, 2026-09-24) */
 .buy-cell .buy-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 10px;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper-raised);
   white-space: nowrap;
 }
-.buy-cell .buy-row:last-child { margin-bottom: 0; }
+.buy-cell .buy-row + .buy-row { margin-top: 7px; }
+
+/* a hairline in the shop's own colour, so Amazon and Rakuten read apart
+   at a glance without adding another block of colour */
+.buy-cell .buy-row:has(.cta-rakuten) { border-left: 3px solid #e6007a; }
+.buy-cell .buy-row:not(:has(.cta-rakuten)) { border-left: 3px solid #ff9900; }
+
 .buy-cell .buy-price {
-  font-size: 0.86rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--ink);
-  min-width: 4.8em;
   text-align: right;
+  letter-spacing: 0.01em;
 }
-.buy-cell .cta-link { margin: 0; }
+.buy-cell .cta-link { margin: 0; min-width: 76px; text-align: center; }
 
 /* ---- The note under a comparison table that carries prices ------------
    Owner decision 2026-09-22: the table states the price as of publication,
