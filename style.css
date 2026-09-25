@@ -225,6 +225,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .site-header nav.site-nav a.contact { display: flex; justify-content: center; margin-top: 4px; }
   .site-header .social-link { justify-content: center; padding: 12px 14px; }
   .site-header .lang-switch { justify-content: center; padding: 12px 14px; font-size: 12px; }
+  /* 指で押せる大きさにする（24x24 以上）。PC 側はマウスなので変えない */
+  .site-header .lang-switch a { padding: 8px 12px; }
 }
 
 main { max-width: 720px; margin: 0 auto; padding: 24px 24px 80px; }
