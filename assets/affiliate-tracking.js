@@ -73,4 +73,47 @@
       /* analytics must never block navigation to the affiliate link */
     }
   });
+
+  // internal_cta_click: a reader moving from one article to another (explainer
+  // -> comparison, comparison -> related). Deliberately a separate event from
+  // affiliate_click so the affiliate count stays purely merchant clicks.
+  // Only fixed values are sent: article slugs and a position label, never text.
+  var ARTICLE_PATH = /^\/(en\/)?articles\/([a-z0-9-]+)\.html$/i;
+
+  function articleSlugFromPath(pathname) {
+    var m = pathname.match(ARTICLE_PATH);
+    return m ? (m[1] ? "en/" : "") + m[2] : null;
+  }
+
+  function getInternalPosition(link) {
+    if (link.closest(".related-articles")) return "related";
+    if (link.classList.contains("cta-link")) return "button";
+    var pos = getCtaPosition(link);
+    return pos === "other" ? "body" : pos;
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href]");
+    if (!link) return;
+    // Only links inside the article body: skips header, language switch,
+    // breadcrumbs and footer, which are site navigation rather than a funnel.
+    if (!link.closest("article")) return;
+    if (link.closest("header, nav, footer")) return;
+    if (typeof window.gtag !== "function") return;
+
+    try {
+      var url = new URL(link.href, window.location.href);
+      if (url.hostname !== window.location.hostname) return;
+      var to = articleSlugFromPath(url.pathname);
+      var from = articleSlugFromPath(window.location.pathname);
+      if (!to || !from || to === from) return;
+      window.gtag("event", "internal_cta_click", {
+        from: from,
+        to: to,
+        cta_position: getInternalPosition(link)
+      });
+    } catch (err) {
+      /* analytics must never block navigation */
+    }
+  });
 })();
