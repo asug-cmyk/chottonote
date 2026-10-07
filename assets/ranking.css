@@ -1,0 +1,140 @@
+/* ranking.css — ランキング表＋商品詳細ページ用の追加スタイル（試作 2026-10-07）
+   既存の style.css / template.css は変更しない。クラスはすべて rk- で始める（既存ページに影響しない）。 */
+.rk-wrap{max-width:960px;margin:0 auto}
+.rk-note{font-size:.85rem;color:var(--ink-soft);margin:.4rem 0 1rem}
+.rk-section-title{display:flex;align-items:center;gap:.6rem}
+
+/* 選び方ポイント */
+.rk-point-head{display:flex;align-items:center;gap:.7rem;margin:2.6rem 0 .8rem}
+.rk-point-no{flex:none;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--prussian-blue);color:#fff;font-weight:700;display:grid;place-items:center}
+.rk-point-head h3{margin:0;font-size:1.2rem}
+.rk-diagram{background:var(--paper-raised);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.1rem 1rem;margin:1rem 0 1.2rem}
+.rk-diagram-title{font-weight:700;font-size:.95rem;margin:0 0 .8rem;color:var(--prussian-blue)}
+.rk-diagram-src{font-size:.75rem;color:var(--ink-soft);margin:.7rem 0 0}
+.rk-bars{display:grid;gap:.55rem}
+.rk-bar{display:grid;grid-template-columns:minmax(7.5rem,32%) 1fr 4.6rem;gap:.6rem;align-items:center;font-size:.88rem}
+.rk-bar-track{height:.8rem;background:var(--surface-soft);border-radius:99px;overflow:hidden}
+.rk-bar-fill{display:block;height:100%;background:var(--dusk-blue);border-radius:99px}
+.rk-bar-val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.rk-types{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.rk-type{background:var(--surface-soft);border-radius:12px;padding:.8rem .7rem;font-size:.82rem;line-height:1.55}
+.rk-type h4{margin:0 0 .4rem;font-size:.95rem;color:var(--prussian-blue)}
+.rk-type dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.15rem .5rem}
+.rk-type dt{color:var(--ink-soft)}.rk-type dd{margin:0;font-weight:600}
+.rk-check{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.rk-check li{display:grid;grid-template-columns:1.6rem 1fr;gap:.5rem;font-size:.92rem}
+.rk-check li::before{content:"✓";color:#fff;background:var(--dusk-blue);border-radius:50%;width:1.4rem;height:1.4rem;display:grid;place-items:center;font-size:.8rem;font-weight:700}
+.rk-matrix{width:100%;border-collapse:collapse;font-size:.85rem}
+.rk-matrix th,.rk-matrix td{border-bottom:1px solid var(--line);padding:.45rem .4rem;text-align:center}
+.rk-matrix th:first-child,.rk-matrix td:first-child{text-align:left}
+.rk-yes{color:var(--dusk-blue);font-weight:700}.rk-no{color:#9aa6ae}
+
+/* スコア表 */
+.rk-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rk-table{width:100%;min-width:720px;border-collapse:collapse;background:var(--paper-raised);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.9rem}
+.rk-table th{background:var(--prussian-blue);color:#fff;font-weight:600;padding:.6rem .5rem;text-align:center;white-space:nowrap;font-size:.82rem}
+.rk-table td{padding:.7rem .5rem;border-top:1px solid var(--line);text-align:center;vertical-align:middle}
+.rk-table td.rk-name{text-align:left;min-width:12rem}
+.rk-table td.rk-name a{font-weight:700}
+.rk-table .rk-maker{display:block;font-size:.75rem;color:var(--ink-soft)}
+.rk-rank{display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--surface-soft);font-weight:700}
+.rk-rank.r1{background:#e9b949;color:#3a2a00}.rk-rank.r2{background:#aab4bb}.rk-rank.r3{background:#c9906a;color:#fff}
+.rk-total{font-size:1.15rem;font-weight:800;color:#c2571a}
+.rk-stars{display:block;font-size:.7rem;letter-spacing:1px;color:#e08a3c}
+.rk-sort{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 .7rem}
+.rk-sort button{font:inherit;font-size:.82rem;border:1px solid #e08a3c;background:#fff;color:#c2571a;border-radius:8px 8px 0 0;padding:.35rem .8rem;cursor:pointer}
+.rk-sort button[aria-pressed="true"]{background:#e8782a;color:#fff}
+.rk-price{display:block;font-weight:700}
+.rk-price-date{display:block;font-size:.7rem;color:var(--ink-soft);font-weight:400}
+.rk-nopr{font-size:.78rem;color:var(--ink-soft);line-height:1.4}
+.rk-btns{display:grid;gap:.3rem;min-width:7.5rem}
+.rk-btn{display:block;text-align:center;border-radius:999px;padding:.5rem .9rem;font-size:.82rem;font-weight:700;color:#0d1b2a;background:#ff9900;text-decoration:none;transition:opacity .15s ease,transform .15s ease}
+.rk-btn:hover{color:#0d1b2a;text-decoration:none;opacity:.82;transform:translateY(-1px)}
+.rk-btn.rk-rakuten{background:#e6007a;color:#fff}
+.rk-btn.rk-rakuten:hover{color:#fff}
+.rk-price-row{display:block;padding-left:.5rem;border-left:3px solid #ff9900;margin:.15rem 0;text-align:left}
+.rk-price-row.rk-r{border-left-color:#e6007a}
+.rk-detail-link{display:inline-block;margin-top:.3rem;font-size:.8rem}
+
+/* スコアの算出方法 */
+.rk-method{background:var(--surface-soft);border-radius:12px;padding:1rem 1.1rem;font-size:.88rem}
+.rk-method table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.82rem}
+.rk-method th,.rk-method td{border:1px solid var(--line);padding:.3rem .5rem;text-align:left;background:#fff}
+
+/* 詳細ページ */
+.rk-hero{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:1.6rem;align-items:start;margin:1rem 0 1.5rem}
+.rk-hero figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:1rem;display:grid;place-items:center}
+.rk-hero img{max-width:100%;height:auto;max-height:300px;object-fit:contain}
+.rk-hero figcaption{font-size:.72rem;color:var(--ink-soft);margin-top:.4rem}
+.rk-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 .6rem}
+.rk-badge{font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:6px;background:#f2a93b;color:#3a2a00}
+.rk-badge.alt{background:var(--surface-soft);color:var(--prussian-blue)}
+.rk-score-box{display:flex;align-items:baseline;gap:.6rem;margin:.4rem 0 .8rem}
+.rk-score-box .rk-total{font-size:2.2rem}
+.rk-spec{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6rem 0 1.2rem}
+.rk-spec th{width:34%;background:#fdeee0;text-align:left;font-weight:600;padding:.55rem .7rem;border-bottom:1px solid #fff}
+.rk-spec td{padding:.55rem .7rem;border-bottom:1px solid var(--line);background:#fff}
+.rk-breakdown{display:grid;gap:.45rem}
+.rk-sources{font-size:.8rem;color:var(--ink-soft)}
+.rk-back{margin:1.5rem 0}
+.rk-cta-block{background:var(--paper-raised);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:1.2rem 0}
+.rk-alt{font-size:.88rem;margin:.6rem 0 0}
+
+@media (max-width:720px){
+  .rk-types{grid-template-columns:1fr 1fr}
+  .rk-hero{grid-template-columns:1fr}
+  .rk-bar{grid-template-columns:7rem 1fr 4rem}
+}
+
+.rk-figure{margin:1rem 0 1.2rem}
+.rk-figure img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.rk-src-tag{display:inline-block;font-size:.68rem;font-weight:700;padding:0 .4rem;border-radius:4px;background:var(--surface-soft);color:var(--ink-soft);margin-left:.3rem;vertical-align:middle}
+
+.rk-wrap .product-card{display:grid;grid-template-columns:200px minmax(0,1fr);gap:1.2rem;align-items:start}
+.rk-wrap .product-card-media{position:relative}
+.rk-wrap .product-card-media img{width:100%;max-width:200px;height:auto}
+@media (max-width:720px){.rk-wrap .product-card{grid-template-columns:1fr}.rk-wrap .product-card-media img{max-width:160px}}
+.rk-figure{margin-top:.2rem}
+.rk-table{min-width:860px}
+.rk-table td.rk-name{min-width:9rem}
+.rk-btns{min-width:7rem}
+
+/* 結論カード */
+.rk-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0 1.6rem}
+.rk-pick{background:var(--paper-raised);border:1px solid var(--line);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.rk-pick-label{align-self:flex-start;background:var(--prussian-blue);color:#fff;font-size:.78rem;font-weight:700;border-radius:99px;padding:.2rem .8rem}
+.rk-pick-img{display:grid;place-items:center;background:#fff;border-radius:10px;padding:.4rem}
+.rk-pick-img img{width:auto;max-width:100%;height:150px;object-fit:contain}
+.rk-pick h3{margin:.2rem 0 0;font-size:1.05rem}
+.rk-pick p{margin:0;font-size:.88rem;color:var(--ink-soft);flex:1}
+@media (max-width:720px){.rk-picks{grid-template-columns:1fr}}
+/* 価格つきボタン（mybest 型: ボタンの上に値段を入れて1列） */
+.rk-btn{display:flex;flex-direction:column;align-items:center;line-height:1.25;padding:.45rem .9rem}
+.rk-btn-label{font-size:.82rem}
+.rk-btn-price{font-size:1.05rem;font-weight:800}
+.rk-btns .rk-price-date{text-align:center}
+.rk-pick .rk-btns{margin-top:.4rem}
+.rk-table td:last-child{min-width:9rem}
+
+/* 商品詳細ポップアップ（mybest 型: 一覧の上に重ねる） */
+html.rk-lock{overflow:hidden}
+.rk-modal{position:fixed;inset:0;z-index:1000;background:rgba(10,20,32,.55);display:flex;justify-content:center;align-items:flex-start;padding:4vh 12px;overflow:hidden}
+.rk-modal[hidden]{display:none}
+.rk-modal-panel{background:var(--paper-raised,#fff);width:min(860px,100%);max-height:92vh;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.rk-modal-bar{flex:none;display:flex;align-items:center;justify-content:center;position:relative;padding:.8rem 3rem;border-bottom:1px solid var(--line);font-weight:700;background:#f4f6f7;border-radius:12px 12px 0 0}
+.rk-modal-x{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);width:2.2rem;height:2.2rem;border:0;background:transparent;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--ink-soft);border-radius:50%}
+.rk-modal-x:hover{background:#e3e8ea}
+.rk-modal-body{overflow-y:auto;padding:1rem 1.4rem 1.4rem;-webkit-overflow-scrolling:touch}
+.rk-modal-body .rk-wrap{padding:0}
+.rk-modal-body .article-header{margin-top:0}
+.rk-modal-body .rk-hero{grid-template-columns:minmax(0,240px) 1fr}
+@media (max-width:720px){.rk-modal{padding:0}.rk-modal-panel{max-height:100vh;height:100%;border-radius:0}.rk-modal-bar{border-radius:0}.rk-modal-body{padding:.8rem 1rem 1.2rem}.rk-modal-body .rk-hero{grid-template-columns:1fr}}
+.rk-alt-link{display:block;text-align:center;font-size:.8rem;margin-top:.3rem}
+
+/* スマホ幅で横にはみ出さない（既存の table の min-width:640px を、スペック表・基準表では打ち消す） */
+.article-body .rk-spec, .article-body .rk-method table, .article-body .rk-matrix { min-width: 0; width: 100%; }
+.rk-spec td, .rk-spec th, .rk-method td, .rk-method th { overflow-wrap: anywhere; }
+@media (max-width:720px){ .rk-spec th{width:36%} }
+.article-body .rk-method th, .article-body .rk-method td, .article-body .rk-spec th, .article-body .rk-spec td { white-space: normal; word-break: normal; overflow-wrap: anywhere; }
+.article-body .rk-method table { table-layout: fixed; }
+.article-body .rk-method th { width: 34%; }
