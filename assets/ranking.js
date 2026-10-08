@@ -1,5 +1,5 @@
 // 詳細ページ等を開いたとき、前のスクロール位置を引き継がず先頭から表示する
-try{if(!location.hash){history.scrollRestoration='manual';window.scrollTo({top:0,behavior:'instant'});window.addEventListener('load',function(){if(!location.hash)window.scrollTo({top:0,behavior:'instant'})});}}catch(e){}
+try{if(!location.hash){history.scrollRestoration='manual';if(window.scrollY>0)window.scrollTo({top:0,behavior:'instant'});window.addEventListener('load',function(){if(!location.hash&&window.scrollY>0)window.scrollTo({top:0,behavior:'instant'})});}}catch(e){}
 // スコア表の並べ替え。ボタンと、表の見出し（総合・各項目）のどちらからでも並べ替えられる。JS が無効でも表は総合順のまま読める。
 // 順位の列は「総合の順位」のまま変えない（項目別に並べ替えても、順位の数字は動かない）。
 (function(){var t=document.getElementById('rk-score-table');if(!t)return;

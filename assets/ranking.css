@@ -39,11 +39,11 @@
 .rk-table .rk-maker{display:block;font-size:.75rem;color:var(--ink-soft)}
 .rk-rank{display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--surface-soft);font-weight:700}
 .rk-rank.r1{background:#e9b949;color:#3a2a00}.rk-rank.r2{background:#aab4bb}.rk-rank.r3{background:#c9906a;color:#fff}
-.rk-total{font-size:1.15rem;font-weight:800;color:#c2571a}
+.rk-total{font-size:1.15rem;font-weight:800;color:#b04a14}
 .rk-stars{display:block;font-size:.7rem;letter-spacing:1px;color:#e08a3c}
 .rk-sort{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 .7rem}
-.rk-sort button{font:inherit;font-size:.82rem;border:1px solid #e08a3c;background:#fff;color:#c2571a;border-radius:8px 8px 0 0;padding:.35rem .8rem;cursor:pointer}
-.rk-sort button[aria-pressed="true"]{background:#e8782a;color:#fff}
+.rk-sort button{font:inherit;font-size:.82rem;border:1px solid #e08a3c;background:#fff;color:#b04a14;border-radius:8px 8px 0 0;padding:.35rem .8rem;cursor:pointer}
+.rk-sort button[aria-pressed="true"]{background:#b04a14;border-color:#b04a14;color:#fff}
 .rk-price{display:block;font-weight:700}
 .rk-price-date{display:block;font-size:.7rem;color:var(--ink-soft);font-weight:400}
 .rk-nopr{font-size:.78rem;color:var(--ink-soft);line-height:1.4}
@@ -335,3 +335,6 @@ th[aria-sort="ascending"] .rk-arrow::after{content:" ▲"}
 .rk-table{overflow:visible}
 
 .rk-figure figcaption{font-size:.78rem;color:var(--ink-soft);margin-top:.4rem;line-height:1.6}
+
+/* アクセシビリティ（文字のコントラスト 4.5:1 以上）: ランキング記事の本文内だけ、補助の灰色と青をわずかに濃くする */
+.article-body,.rk-snap,.rk-learn,.rk-facts{--ink-soft:#56636e;--dusk-blue:#2d5fb8;--accent:#2d5fb8;--accent-strong:#2d5fb8}
