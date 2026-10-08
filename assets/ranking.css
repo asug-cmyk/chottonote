@@ -333,3 +333,5 @@ th[aria-sort="ascending"] .rk-arrow::after{content:" ▲"}
 /* 購入ボタンまわり: 1行の注記（ボタンの文言・色は変えない） */
 .rk-ext{color:var(--ink-soft);white-space:normal}
 .rk-table{overflow:visible}
+
+.rk-figure figcaption{font-size:.78rem;color:var(--ink-soft);margin-top:.4rem;line-height:1.6}
