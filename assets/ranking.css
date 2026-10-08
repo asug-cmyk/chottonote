@@ -138,3 +138,198 @@ html.rk-lock{overflow:hidden}
 .article-body .rk-method th, .article-body .rk-method td, .article-body .rk-spec th, .article-body .rk-spec td { white-space: normal; word-break: normal; overflow-wrap: anywhere; }
 .article-body .rk-method table { table-layout: fixed; }
 .article-body .rk-method th { width: 34%; }
+
+/* ===== 2026-10-08 UI/UX 見直し（Phase 2-3）=====
+   既存のクラスは変えず、rk- の新しいクラスだけを足す。色は既存のトークン（style.css）を使う。 */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+summary:focus-visible,input:focus-visible,.rk-table-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rk-wrap h2[id],.rk-wrap .rk-compare[id],.rk-card[id]{scroll-margin-top:170px}
+@media (max-width:899px){.rk-wrap h2[id],.rk-wrap .rk-compare[id],.rk-card[id]{scroll-margin-top:120px}}
+.rk-disc{font-size:.8rem;color:var(--ink-soft)}
+
+/* 1. ファーストビューの要約 */
+.rk-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:1.1rem 0 .3rem}
+.rk-stats>div{background:var(--paper-raised);border:1px solid var(--line);border-radius:12px;padding:.55rem .8rem;min-width:0}
+.rk-stats dt{font-size:.72rem;color:var(--ink-soft);margin:0}
+.rk-stats dd{margin:0;font-weight:800;font-size:1.02rem;font-variant-numeric:tabular-nums}
+.rk-jump{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0 0}
+.rk-jump a{display:inline-block;padding:.4rem 1rem;border:1px solid var(--line);border-radius:99px;background:var(--paper-raised);font-size:.85rem;font-weight:700;color:var(--prussian-blue)}
+.rk-jump a:hover{border-color:var(--accent);text-decoration:none}
+.rk-jump-end{margin-top:1rem}
+.rk-learn{margin:0 0 1.6rem;background:var(--surface-soft);border:1px solid var(--line);border-left:4px solid var(--dusk-blue);border-radius:12px;padding:.9rem 1.2rem 1rem}
+.rk-learn-h{margin:0 0 .4rem;font-weight:800;font-size:.95rem;color:var(--prussian-blue)}
+.rk-learn ul{margin:0;padding-left:1.2em}
+.rk-learn li{margin:.25rem 0;font-size:.92rem}
+@media (max-width:560px){.rk-stats{grid-template-columns:1fr 1fr}}
+
+/* 5. ナビゲーション */
+.rk-subnav{position:sticky;top:112px;z-index:20;margin:0 0 1.2rem;background:rgba(243,245,243,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:.2rem .35rem}
+.rk-subnav ul{display:flex;gap:.15rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+.rk-subnav a{display:block;padding:.5rem .85rem;font-size:.88rem;font-weight:700;color:var(--ink);border-radius:8px;white-space:nowrap}
+.rk-subnav a:hover{background:var(--surface-soft);text-decoration:none}
+.rk-subnav a.is-current{background:var(--prussian-blue);color:#fff}
+@media (max-width:899px){.rk-subnav{position:static}}
+.rk-toc{margin:0 0 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft)}
+.rk-toc>summary{cursor:pointer;padding:.7rem 1rem;font-weight:800;font-size:.9rem;color:var(--prussian-blue);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.rk-toc>summary::-webkit-details-marker{display:none}
+.rk-toc>summary::after{content:"＋";font-weight:700}
+.rk-toc[open]>summary::after{content:"－"}
+.rk-toc .toc{margin:0;border:0;border-radius:0 0 12px 12px;background:transparent;padding:0 1rem .8rem}
+.rk-toc .toc-title{display:none}
+.rk-totop{position:fixed;right:14px;bottom:14px;z-index:30;display:inline-flex;align-items:center;gap:.35rem;min-height:44px;min-width:44px;justify-content:center;padding:.4rem .85rem;border:1px solid var(--prussian-blue);background:var(--prussian-blue);color:#fff;border-radius:99px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(9,26,42,.25)}
+.rk-totop[hidden]{display:none}
+.rk-totop:hover{opacity:.9}
+@media (max-width:560px){.rk-totop-t{display:none}.rk-totop{padding:.4rem;border-radius:50%;width:44px}}
+
+/* 2. 結論カードの「主なスペック」 */
+.rk-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+.rk-chips li{display:inline-flex;flex-wrap:wrap;gap:.1rem .4rem;align-items:baseline;background:var(--surface-soft);border:1px solid var(--line);border-radius:8px;padding:.2rem .55rem;font-size:.76rem;line-height:1.4}
+.rk-chip-k{color:var(--ink-soft)}
+.rk-chip-v{font-weight:700;color:var(--ink)}
+
+/* 3. ランキングカード */
+.rk-cards{display:grid;gap:1rem;margin:1rem 0 1.4rem}
+.rk-card{display:grid;grid-template-columns:190px minmax(0,1fr) 210px;gap:1.2rem;align-items:start;background:var(--paper-raised);border:1px solid var(--line);border-radius:16px;padding:1.1rem}
+.rk-card-media{position:relative}
+.rk-card-media a{display:block}
+.rk-card-media img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)}
+.rk-rank-badge{position:absolute;left:.4rem;top:.4rem;z-index:1;background:var(--prussian-blue);color:#fff;font-weight:800;font-size:.85rem;border-radius:8px;padding:.15rem .6rem}
+.rk-rank-badge.r1{background:#e9b949;color:#3a2a00}.rk-rank-badge.r2{background:#aab4bb;color:#0a1420}.rk-rank-badge.r3{background:#c9906a;color:#2b1608}
+.rk-card-main{min-width:0}
+.rk-card-main .rk-maker{margin:0;font-size:.78rem;color:var(--ink-soft)}
+.rk-card-main h3{margin:.1rem 0 .4rem;font-size:1.15rem}
+.rk-card-main h3 a{color:var(--ink)}
+.rk-card-score{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .6rem;margin:0 0 .5rem}
+.rk-card-score .rk-stars{display:inline}
+.rk-card-score-k{font-size:.78rem;color:var(--ink-soft)}
+.rk-mini{list-style:none;margin:0 0 .7rem;padding:0;display:grid;gap:.3rem}
+.rk-mini li{display:grid;grid-template-columns:5.5rem minmax(0,1fr) 2.4rem;gap:.5rem;align-items:center;font-size:.8rem}
+.rk-mini-v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.rk-mini .rk-bar-track{height:.55rem}
+.rk-scene{margin:0 0 .7rem;font-size:.88rem}
+.rk-scene-k{display:block;font-size:.72rem;font-weight:700;color:var(--prussian-blue);margin-bottom:.1rem}
+.rk-pc{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:0 0 .6rem}
+.rk-pc>div{border-radius:10px;padding:.55rem .7rem;font-size:.82rem;min-width:0}
+.rk-pc ul{margin:0;padding-left:1.1em}.rk-pc li{margin:.15rem 0}
+.rk-pc h4{margin:0 0 .25rem;font-size:.8rem}
+.rk-pros{background:rgba(76,175,80,.1)}.rk-pros h4{color:#2d6a31}
+.rk-cons{background:rgba(230,0,122,.07)}.rk-cons h4{color:#a1005a}
+.rk-more{margin:0;font-size:.85rem;font-weight:700}
+.rk-card-buy .rk-btns{min-width:0}
+@media (max-width:899px){.rk-card{grid-template-columns:150px minmax(0,1fr)}.rk-card-buy{grid-column:1/-1}.rk-card-buy .rk-btns{grid-template-columns:1fr 1fr;align-items:start}.rk-card-buy .rk-price-date{grid-column:1/-1}}
+@media (max-width:720px){
+  .rk-card{grid-template-columns:1fr;gap:.8rem;padding:.9rem}
+  .rk-card-media{max-width:200px;margin:0 auto;width:100%}
+  .rk-pc{grid-template-columns:1fr}
+  .rk-card-buy .rk-btns{grid-template-columns:1fr}
+}
+
+/* 4. 比較表の追加機能 */
+.rk-sort-k{align-self:center;font-size:.8rem;color:var(--ink-soft);margin-right:.2rem}
+.rk-sort button{border-radius:8px}
+.rk-sort button:focus-visible{outline-offset:1px}
+.rk-th-sort{font:inherit;color:inherit;background:none;border:0;padding:.1rem .15rem;cursor:pointer;white-space:nowrap}
+.rk-th-sort:hover{text-decoration:underline}
+.rk-th-sort:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rk-table th[aria-sort="descending"],.rk-table th[aria-sort="ascending"]{background:#1d4673}
+th[aria-sort="descending"] .rk-arrow::after{content:" ▼"}
+th[aria-sort="ascending"] .rk-arrow::after{content:" ▲"}
+.rk-arrow{font-size:.7em}
+.rk-cmp{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;font-size:.78rem;font-weight:600;cursor:pointer;color:var(--prussian-blue)}
+.rk-cmp input{width:1.1rem;height:1.1rem;accent-color:var(--dusk-blue);cursor:pointer}
+.rk-cmp input:disabled,.rk-cmp input:disabled+span{opacity:.45;cursor:not-allowed}
+.rk-criteria{margin:.9rem 0 1.4rem;border:1px solid var(--line);border-radius:12px;background:var(--paper-raised);padding:0 1rem}
+.rk-criteria>summary{cursor:pointer;padding:.75rem 0;font-weight:800;font-size:.92rem;color:var(--prussian-blue)}
+.rk-criteria p{font-size:.85rem;color:var(--ink-soft);margin:0 0 .6rem}
+.rk-crit{margin:0 0 .8rem;display:grid;gap:.5rem}
+.rk-crit>div{display:grid;grid-template-columns:minmax(8rem,28%) 1fr;gap:.2rem .8rem;font-size:.85rem;border-top:1px solid var(--line);padding-top:.5rem}
+.rk-crit dt{font-weight:700;display:flex;flex-direction:column}.rk-crit dd{margin:0}
+.rk-w{font-weight:400;font-size:.75rem;color:var(--ink-soft)}
+@media (max-width:560px){.rk-crit>div{grid-template-columns:1fr}}
+.rk-compare{margin:1.4rem 0;border:1px solid var(--line);border-radius:14px;background:var(--paper-raised);padding:1rem 1.1rem}
+.rk-compare h3{margin:0 0 .3rem;font-size:1.05rem}
+.rk-compare .rk-note{margin:.2rem 0 .6rem}
+.rk-cmp-msg{margin:.3rem 0;font-size:.85rem;font-weight:700;color:#a1005a;min-height:0}
+.rk-cmp-msg:empty{display:none}
+.rk-cmp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.article-body table.rk-cmp-table{min-width:0;width:100%;table-layout:fixed;font-size:.8rem}
+.rk-cmp-table th,.rk-cmp-table td{white-space:normal;overflow-wrap:anywhere;vertical-align:top;text-align:center;padding:.5rem .45rem}
+.rk-cmp-table th:first-child,.rk-cmp-table td:first-child{width:5.6rem;text-align:left;background:var(--surface-soft);font-weight:700}
+.rk-cmp-table thead th{background:var(--paper-raised)}
+.rk-cmp-table thead img{display:block;margin:0 auto .3rem;width:72px;height:72px;object-fit:contain}
+.rk-cmp-table .rk-total{font-size:1.05rem}
+.rk-cmp-rm{font:inherit;font-size:.72rem;margin-top:.3rem;border:1px solid var(--line);background:#fff;border-radius:6px;padding:.15rem .5rem;cursor:pointer}
+.rk-cmp-clear{font:inherit;font-size:.8rem;margin:.6rem 0 0;border:1px solid var(--line);background:#fff;border-radius:8px;padding:.3rem .8rem;cursor:pointer}
+
+/* 6. 選び方の「関連するおすすめ商品」 */
+.rk-rel{margin:.4rem 0 1rem;padding:.5rem .85rem;background:var(--surface-soft);border-left:3px solid var(--dusk-blue);border-radius:0 10px 10px 0;font-size:.88rem}
+.rk-rel-k{font-weight:700;color:var(--prussian-blue);margin-right:.6rem}
+.rk-rel-s{color:var(--ink-soft);font-size:.8rem;margin-left:.3rem}
+
+/* 7. 更新履歴 */
+.rk-history{list-style:none;margin:.5rem 0 1rem;padding:0;display:grid;gap:.4rem}
+.rk-history li{display:grid;grid-template-columns:6.5rem 1fr;gap:.6rem;font-size:.88rem;border-top:1px solid var(--line);padding-top:.4rem}
+.rk-history time{font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+@media (max-width:560px){.rk-history li{grid-template-columns:1fr;gap:.1rem}}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* 表の中の購入ボタンは、既存の「表の中のリンク色」に負けないよう文字色を固定（橙: 濃紺の文字／桃: 白の文字） */
+.article-body .rk-table a.rk-btn{color:#0d1b2a}
+.article-body .rk-table a.rk-btn.rk-rakuten{color:#fff}
+.article-body .rk-table a.rk-btn:hover{text-decoration:none}
+@media (max-width:560px){.article-body table.rk-cmp-table{min-width:540px}.rk-cmp-table th:first-child,.rk-cmp-table td:first-child{width:4.6rem}}
+
+/* ---- Round 2 UI/UX (2026-10-08): 結論の早見・メタのチップ化・ヒーロー高さ制限・表の固定列・購入注記 ---- */
+/* 冒頭を詰める（このページ内だけ） */
+.rk-eyecatch .article-eyecatch{margin:0 0 14px;padding:10px 18px}
+.rk-eyecatch .eyecatch-badge{width:36px;height:36px}
+.article-header.rk-head{margin-bottom:14px}
+.rk-head .article-meta{margin:.2rem 0 .4rem}
+.rk-head .article-lead{margin:.3rem 0 .6rem}
+/* 前提の1行チップ（比較対象 / スペック確認日 / 価格の取得日 / 評価項目） */
+.rk-facts{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:.5rem 0 .9rem;padding:0}
+.rk-facts li{display:inline-flex;align-items:baseline;gap:.4rem;background:var(--paper-raised);border:1px solid var(--line);border-radius:99px;padding:.18rem .75rem;font-size:.78rem;line-height:1.5;min-width:0}
+.rk-fact-k{color:var(--ink-soft)}
+.rk-facts b{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* 結論の早見 */
+.rk-snap{background:var(--paper-raised);border:1px solid var(--line);border-top:3px solid var(--prussian-blue);border-radius:12px;padding:.6rem .8rem .8rem}
+.rk-snap-h{margin:0 0 .45rem;font-weight:800;font-size:.9rem;color:var(--prussian-blue)}
+.rk-snap ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:.55rem}
+.rk-snap li{min-width:0;display:flex}
+.rk-snap a{display:flex;flex-direction:column;gap:.15rem;flex:1;min-width:0;padding:.5rem .65rem;border:1px solid var(--line);border-radius:10px;background:var(--surface-soft);color:var(--ink);text-decoration:none;transition:border-color .15s ease,background-color .15s ease}
+.rk-snap a:hover{border-color:var(--accent);background:#fff;text-decoration:none}
+.rk-snap a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rk-snap-k{font-size:.74rem;font-weight:700;color:var(--dusk-blue);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rk-snap-n{font-size:.88rem;font-weight:800;line-height:1.4;overflow-wrap:anywhere}
+.rk-pick[id]{scroll-margin-top:170px}
+@media (max-width:899px){.rk-pick[id]{scroll-margin-top:120px}}
+@media (max-width:720px){
+  .rk-snap ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rk-snap a{padding:.4rem .55rem}
+  .rk-snap-n{font-size:.82rem}
+  .rk-eyecatch .article-eyecatch{padding:8px 14px;margin-bottom:10px}
+  .rk-head .article-lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
+/* ヒーロー画像: 高さに上限（キャッチコピー帯が残るよう縦の中ほどを見せる） */
+.rk-herowrap .article-hero{margin:0 0 .9rem}
+.rk-herowrap .article-hero-main{aspect-ratio:auto;height:clamp(180px,30vw,320px)}
+.rk-herowrap .article-hero-main img{height:100%;object-fit:cover;object-position:50% 52%}
+@media (max-width:720px){.rk-herowrap .article-hero-main{height:auto;aspect-ratio:16/9;max-height:220px}}
+/* 「この記事で分かること」: 3行のコンパクト表示 */
+.rk-learn{margin:0 0 1rem;padding:.55rem .9rem .6rem;border-left-width:3px}
+.rk-learn-h{margin:0 0 .15rem;font-size:.84rem}
+.rk-learn ul{padding-left:1.1em}
+.rk-learn li{margin:.05rem 0;font-size:.84rem;line-height:1.55}
+.rk-learn .rk-jump{margin:.5rem 0 0}
+.rk-learn .rk-jump a{padding:.2rem .8rem;font-size:.78rem}
+/* 更新履歴の折りたたみ */
+.rk-hist{margin:.3rem 0 1rem}
+.rk-hist summary{cursor:pointer;font-size:.88rem;font-weight:700;color:var(--prussian-blue);padding:.3rem 0}
+.rk-hist .rk-history{margin-top:.3rem}
+/* 比較表: 商品名の列を固定（横スクロール時も見える） */
+.rk-table th:nth-child(2),.rk-table td.rk-name{position:sticky;left:0;z-index:2}
+.rk-table td.rk-name{background:var(--paper-raised);box-shadow:2px 0 5px -2px rgba(13,27,42,.28)}
+.rk-table th:nth-child(2){background:var(--prussian-blue);z-index:3;box-shadow:2px 0 5px -2px rgba(13,27,42,.4)}
+.rk-table tr.rk-pending td.rk-name{background:var(--paper-raised)}
+/* 購入ボタンまわり: 1行の注記（ボタンの文言・色は変えない） */
+.rk-ext{color:var(--ink-soft);white-space:normal}
+.rk-table{overflow:visible}
