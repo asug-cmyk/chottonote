@@ -55,8 +55,13 @@ def check_side(en):
                                          else 'category-*.html')))
     base = 'https://blog.asdevstudio.com/' + ('en/' if en else '')
 
-    files = {os.path.basename(p) for p in
-             glob.glob(os.path.join(ROOT, adir, '*.html'))}
+    # 2026-10-07/08 のテンプレ刷新（90efcf8）で articles/<category>/<brand-model>.html
+    # という商品詳細ページ（ネスト）が追加された。再帰的に集め、sitemap/index/カテゴリ
+    # ページ側と同じ「articles/ からの相対パス」で揃える（basename だけだとネストした
+    # ページが全部「存在しない」偽陽性になる）。
+    adir_abs = os.path.join(ROOT, adir)
+    files = {os.path.relpath(p, adir_abs) for p in
+             glob.glob(os.path.join(adir_abs, '**', '*.html'), recursive=True)}
     if not files:
         fail(f'{label}: {adir}/ に記事が1本も無い（検査の前提が崩れている）')
         return
