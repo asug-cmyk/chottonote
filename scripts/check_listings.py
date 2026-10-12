@@ -15,6 +15,13 @@
 毎朝読んでカードを自動生成している**（D-HP-011）。カテゴリページの構造が崩れると
 HP 側が止まって新しい記事が載らなくなるので、その構造もここで守る。
 
+2026-10-12 追記: 2026-10-07 のテンプレ刷新（90efcf8）で、比較（hikaku）記事の下に
+商品詳細ページ articles/<category>-hikaku/<brand-model>.html が追加された。これは
+sitemap.xml には載るが、index.html・カテゴリページには載らない（読者はランキング記事
+自体のリンクから詳細ページへ進む設計。index/カテゴリが直接リンクするのはランキング
+記事そのものだけ）。そのため、トップレベルの記事とネストした商品詳細ページを分けて
+突き合わせる。
+
 使い方:
     python3 scripts/check_listings.py
 終了コード 0 = 問題なし / 1 = 問題あり（内容を標準出力に出す）
@@ -55,9 +62,18 @@ def check_side(en):
                                          else 'category-*.html')))
     base = 'https://blog.asdevstudio.com/' + ('en/' if en else '')
 
-    files = {os.path.basename(p) for p in
-             glob.glob(os.path.join(ROOT, adir, '*.html'))}
-    if not files:
+    adir_abs = os.path.join(ROOT, adir)
+    # トップレベルの記事（ランキング記事・情報記事）。index/カテゴリページが
+    # 直接リンクするのはこれだけ。
+    files_top = {os.path.basename(p) for p in
+                 glob.glob(os.path.join(adir_abs, '*.html'))}
+    # ランキング記事の下にある商品詳細ページ（<category>-hikaku/<brand-model>.html）。
+    # sitemap には載るが、index/カテゴリページには載らない（ランキング記事自身の
+    # リンクから進む設計）。
+    files_nested = {os.path.relpath(p, adir_abs) for p in
+                     glob.glob(os.path.join(adir_abs, '*', '*.html'))}
+    files_all = files_top | files_nested
+    if not files_all:
         fail(f'{label}: {adir}/ に記事が1本も無い（検査の前提が崩れている）')
         return
 
@@ -72,13 +88,22 @@ def check_side(en):
     for c in cats:
         in_cat |= article_links(open(c, encoding='utf-8').read(), en)
 
-    for name, where in (('sitemap.xml', in_sitemap),
-                        (index, in_index),
-                        ('カテゴリページ', in_cat)):
-        missing = sorted(files - where)
+    # sitemap.xml はトップレベル記事・商品詳細ページの両方を載せる（クローラーが
+    # 直接ここから見つけられる必要がある）。
+    missing = sorted(files_all - in_sitemap)
+    if missing:
+        fail(f'{label}: 記事ファイルはあるのに sitemap.xml に載っていない: {missing}')
+    ghost = sorted(in_sitemap - files_all)
+    if ghost:
+        fail(f'{label}: sitemap.xml が指している記事ファイルが存在しない: {ghost}')
+
+    # index.html・カテゴリページはトップレベル記事だけを直接リンクする（商品詳細
+    # ページはランキング記事自身のリンクから読者が進む）。
+    for name, where in ((index, in_index), ('カテゴリページ', in_cat)):
+        missing = sorted(files_top - where)
         if missing:
             fail(f'{label}: 記事ファイルはあるのに {name} に載っていない: {missing}')
-        ghost = sorted(where - files)
+        ghost = sorted(where - files_top)
         if ghost:
             fail(f'{label}: {name} が指している記事ファイルが存在しない: {ghost}')
 
