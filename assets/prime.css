@@ -73,9 +73,11 @@
   --pr-gold:#f6c343;
 }
 
-/* ヒーロー（見出しブロックだけをグラデーションで囲む。下の「前提チップ」「カテゴリ早見」は通常の白背景のまま＝コントラスト確保） */
+/* ヒーロー（見出しブロックだけをグラデーションで囲む。下の「前提チップ」「カテゴリ早見」は通常の白背景のまま＝コントラスト確保）
+   GPT-5の実画面レビュー(2026-10-13、ask_gpt_vision.py)で「右下の薄い青地だと白文字のコントラストが怪しい」と
+   指摘されたため、グラデーションの明るい側を紺寄りに寄せてコントラストを確保した。 */
 .pr-hero{
-  background:linear-gradient(135deg,var(--prussian-blue) 0%,var(--accent) 70%),
+  background:linear-gradient(135deg,var(--prussian-blue) 0%,#1f4c84 85%),
              radial-gradient(rgba(16,194,176,.22) 1.5px,transparent 1.5px);
   background-blend-mode:normal,overlay;
   background-size:auto,16px 16px;
@@ -83,10 +85,10 @@
   padding:1.3rem 1.3rem 1.5rem;
   margin:0 0 1rem;
 }
-.pr-hero .kicker{display:inline-block;background:var(--pr-gold);color:#3a2a00;font-weight:800;border-radius:999px;padding:.25rem .85rem;font-size:.78rem;margin:0}
-.pr-hero h1{color:#fff;margin:.6rem 0 .3rem}
-.pr-hero .article-meta{color:rgba(255,255,255,.85);margin:.2rem 0 .4rem}
-.pr-hero .article-lead{color:rgba(255,255,255,.95);margin:.3rem 0 0}
+.pr-hero .kicker{display:inline-block;background:none;color:var(--pr-gold);font-weight:800;letter-spacing:.03em;padding:0;font-size:.78rem;margin:0}
+.pr-hero h1{color:#fff;margin:.5rem 0 .7rem}
+.pr-hero .article-meta{color:rgba(255,255,255,.9);margin:.2rem 0 .6rem}
+.pr-hero .article-lead{color:rgba(255,255,255,.95);margin:0;max-width:62ch}
 .pr-sale-pill{display:inline-flex;align-items:center;gap:.35rem;margin:.5rem 0 0;padding:.35rem .9rem;border-radius:999px;background:var(--pr-gold);color:#3a2a00;font-weight:800;font-size:.85rem;line-height:1.3}
 .pr-sale-pill::before{content:"🎉";font-size:.95em}
 
@@ -99,15 +101,19 @@
 .pr-notice .notice-icon{font-size:1.5rem}
 .pr-dates>div{border-top-width:5px;border-top-color:var(--pr-teal)}
 
-/* Amazonバナー素材(もしも経由、W-MKT-ASP-013) */
-.pr-banner{margin:1rem 0 1.6rem;text-align:center}
-.pr-banner-label{font-size:.78rem;font-weight:700;color:var(--ink-soft);margin:0 0 .4rem}
+/* Amazonバナー素材(もしも経由、W-MKT-ASP-013)。GPT-5の実画面レビューで
+   「ラベル+画像だけだと広告が浮いて見える」と指摘されたため、カードで囲んで意図的な配置に見せる */
+.pr-banner{margin:1.2rem 0 1.6rem;padding:1rem;text-align:center;background:var(--paper-raised);border:1px solid var(--line);border-radius:14px}
+.pr-banner-label{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.76rem;font-weight:700;color:var(--ink-soft);margin:0 0 .7rem}
+.pr-banner-label::before,.pr-banner-label::after{content:"";flex:1;max-width:2.5rem;height:1px;background:var(--line)}
 .pr-banner a{display:inline-block;max-width:100%}
 .pr-banner img{max-width:100%;height:auto;border-radius:8px}
 
-/* カテゴリ別の目次(既存のrk-subnav、吸着ナビ)をタブらしく */
-.rk-subnav{background:rgba(255,255,255,.94);border:1px solid var(--pr-teal)}
-.rk-subnav a.is-current{background:var(--pr-teal);color:#fff}
+/* カテゴリ別の目次(既存のrk-subnav、吸着ナビ)をタブらしく。GPT-5の実画面レビューで
+   「枠線が薄すぎる・タップ領域が狭そう」と指摘されたため、枠線を濃く・パディングを広げた */
+.rk-subnav{background:rgba(255,255,255,.96);border:1.5px solid var(--pr-teal)}
+.rk-subnav a{padding:.65rem .95rem}
+.rk-subnav a.is-current{background:var(--pr-teal);color:#fff;font-weight:800}
 
 /* 商品カード: 横並び1行(ranking.css既定)ではなく、縦積みのカードをグリッドで複数列に
    (オーナー指示: 既存テンプレートの見た目に縛られなくてよい) */
@@ -119,6 +125,9 @@
 .pr-card .rk-card-main{width:100%}
 .pr-card .rk-card-buy{width:100%;margin-top:auto;padding-top:.8rem}
 .pr-card .rk-btn{width:100%}
+/* ボタンと「外部サイトへ移動します」注記の間が詰まりすぎという指摘(GPT-5実画面レビュー)への対応 */
+.pr-card .rk-btns{gap:.6rem}
+.pr-card .rk-price-date{margin-top:.1rem;font-size:.74rem;opacity:.85}
 @media (prefers-reduced-motion:no-preference){
   .pr-card{transition:box-shadow .15s ease,transform .15s ease}
   .pr-card:hover{box-shadow:0 2px 0 rgba(16,43,73,.06),0 10px 24px rgba(16,43,73,.16);transform:translateY(-2px)}
