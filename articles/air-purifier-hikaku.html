@@ -108,6 +108,111 @@
 <div class="rk-point-head"><span class="rk-point-no">7</span><h3>付加機能</h3></div><p>自動運転・タイマー・チャイルドロックなど、あると便利な機能を表にしました。</p>
 <figure class="rk-figure"><img src="/assets/articles/air-purifier-hikaku/p7-ja.png" alt="付加機能の有無の一覧表" loading="lazy" width="960" height="365"></figure>
 <p class="rk-rel"><span class="rk-rel-k">関連するおすすめ商品</span><a href="#daikin-mck706a-w">ダイキン MCK706A-W</a><span class="rk-rel-s">（付加機能 5/5）</span></p>
+
+      <h2>実質価格を計算してみる(ポイント・送料・クーポン込み)</h2>
+      <p class="rk-note">本体価格だけで比較すると、ポイント還元や送料、クーポンの分だけ実際の負担額とズレることがあります。ボタンを押すと、実質価格の目安をその場で計算できます。</p>
+      <button type="button" class="calc-tool-trigger" data-component="effective-price-calc-trigger" aria-haspopup="dialog">実質価格を計算してみる</button>
+
+      <dialog class="calc-tool-dialog" data-component="effective-price-calc-dialog" aria-label="実質価格の計算">
+        <div class="calc-tool-dialog-header">
+          <p class="calc-tool-dialog-title">実質価格を計算</p>
+          <button type="button" class="calc-tool-dialog-close" data-component="effective-price-calc-close" aria-label="閉じる">×</button>
+        </div>
+        <div class="calc-tool-form">
+          <div class="calc-tool-row">
+            <label for="calc-price">本体価格(円)</label>
+            <input type="number" id="calc-price" inputmode="numeric" min="0" step="1" placeholder="例: 25000">
+          </div>
+          <div class="calc-tool-row">
+            <label for="calc-point-rate">獲得ポイント還元率(%)</label>
+            <input type="number" id="calc-point-rate" inputmode="decimal" min="0" step="0.1" placeholder="例: 1">
+          </div>
+          <div class="calc-tool-row">
+            <label for="calc-shipping">送料(円)</label>
+            <input type="number" id="calc-shipping" inputmode="numeric" min="0" step="1" placeholder="例: 0">
+          </div>
+          <div class="calc-tool-row">
+            <label for="calc-coupon">クーポン割引額(円)</label>
+            <input type="number" id="calc-coupon" inputmode="numeric" min="0" step="1" placeholder="例: 0">
+          </div>
+        </div>
+        <div class="calc-tool-result" aria-live="polite">
+          <p class="calc-tool-result-label">実質価格(目安)</p>
+          <p class="calc-tool-result-value" id="calc-result">本体価格を入力してください</p>
+          <p class="calc-tool-note">ポイントは還元率どおりに付与された場合の目安です。実際の還元率・付与条件は購入時の表示でご確認ください。</p>
+        </div>
+        <a class="calc-tool-cta" href="#score" data-component="effective-price-calc-goto-table">↓ スペックスコア一覧で価格帯を見る</a>
+        <p class="calc-tool-disclosure">このツールの計算結果自体に広告は含みません。下の比較表・購入先リンクには広告(アフィリエイトリンク)を含みます。</p>
+      </dialog>
+      <style>
+        .calc-tool-trigger{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:999px;font:inherit;font-size:0.85rem;font-weight:700;cursor:pointer;transition:opacity 0.15s ease, transform 0.15s ease;}
+        .calc-tool-trigger:hover{opacity:.85;transform:translateY(-1px);}
+        .calc-tool-dialog{position:fixed;margin:0;right:16px;bottom:72px;left:auto;top:auto;border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.5rem 1.5rem;width:360px;max-width:calc(100vw - 32px);max-height:calc(100vh - 92px);overflow-y:auto;background:var(--paper-raised);box-shadow:0 20px 50px rgba(10,20,32,.25);z-index:40;}
+        @media (max-width:640px){.calc-tool-dialog{left:16px;right:16px;width:auto;}}
+        /* このテンプレートは右下に固定の「ページ先頭へ」ボタン(.rk-totop)を持つため、
+           ポップアップはその上に余白(bottom:72px)を空けて重ならないようにしている。 */
+        .calc-tool-dialog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;}
+        .calc-tool-dialog-title{font-weight:700;margin:0;}
+        .calc-tool-dialog-close{font-size:1.4rem;line-height:1;background:none;border:none;color:var(--ink-soft);cursor:pointer;padding:.25rem .5rem;}
+        .calc-tool-row{display:flex;flex-direction:column;gap:.25rem;margin-bottom:.75rem;}
+        .calc-tool-row label{font-size:.85rem;color:var(--ink-soft);}
+        .calc-tool-row input{font:inherit;padding:.5rem .6rem;border:1px solid var(--line);border-radius:8px;width:100%;box-sizing:border-box;}
+        .calc-tool-result{margin-top:.5rem;padding-top:1rem;border-top:1px dashed var(--line);}
+        .calc-tool-result-label{font-size:.8rem;color:var(--ink-soft);margin:0;}
+        .calc-tool-result-value{font-size:1.6rem;font-weight:700;color:var(--accent-strong);margin:.25rem 0;}
+        .calc-tool-note{font-size:.75rem;color:var(--ink-soft);margin:0;}
+        .calc-tool-cta{display:inline-block;margin-top:.5rem;color:var(--accent);text-decoration:underline;font-size:.9rem;}
+        .calc-tool-disclosure{font-size:.75rem;color:var(--ink-soft);margin-top:.75rem;}
+      </style>
+      <script>
+        (function () {
+          var trigger = document.querySelector('[data-component="effective-price-calc-trigger"]');
+          var dialog = document.querySelector('[data-component="effective-price-calc-dialog"]');
+          var closeBtn = document.querySelector('[data-component="effective-price-calc-close"]');
+          var gotoTable = document.querySelector('[data-component="effective-price-calc-goto-table"]');
+          if (!trigger || !dialog || !closeBtn) return;
+
+          // 非モーダル(.show())— 記事側は裏で閉じない・操作もできる状態のまま、
+          // ポップアップだけを画面に固定表示する(オーナー指示: 記事を見ながら
+          // ポップアップ内の操作もできるようにしたい、2026-10-13)。
+          trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            dialog.show();
+          });
+          closeBtn.addEventListener('click', function () { dialog.close(); });
+          if (gotoTable) {
+            gotoTable.addEventListener('click', function () { dialog.close(); });
+          }
+          // 記事側をクリックしても閉じない(記事を見ながら操作する、という
+          // 今回の目的のため、意図的に「外側クリックで閉じる」は付けていない)。
+          // 非モーダルには標準のEscapeでの自動クローズが無いため、手動で用意する。
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && dialog.open) dialog.close();
+          });
+
+          var price = dialog.querySelector('#calc-price');
+          var rate = dialog.querySelector('#calc-point-rate');
+          var ship = dialog.querySelector('#calc-shipping');
+          var coupon = dialog.querySelector('#calc-coupon');
+          var out = dialog.querySelector('#calc-result');
+          function fmt(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
+          function recalc() {
+            var p = parseFloat(price.value);
+            if (!p || p < 0) { out.textContent = '本体価格を入力してください'; return; }
+            var r = parseFloat(rate.value) || 0;
+            var s = parseFloat(ship.value) || 0;
+            var c = parseFloat(coupon.value) || 0;
+            var points = p * (r / 100);
+            var effective = p + s - c - points;
+            if (effective < 0) effective = 0;
+            out.textContent = fmt(effective);
+          }
+          [price, rate, ship, coupon].forEach(function (el) {
+            el.addEventListener('input', recalc);
+          });
+        })();
+      </script>
+
       <h2 id="score">スペックスコア一覧</h2><p class="rk-note">→ 表は横にスクロールできます。ボタンで並べ替えられます。商品名をクリックすると詳細が開きます。 表の見出しをクリックしても並べ替えられます。</p>
 <div class="rk-sort" role="group" aria-label="並べ替え"><span class="rk-sort-k">並べ替え</span><button type="button" data-key="total" aria-pressed="true">総合</button><button type="button" data-key="price" data-dir="asc" aria-pressed="false">価格が安い順</button><button type="button" data-key="area" aria-pressed="false">適用畳数順</button><button type="button" data-key="quiet" aria-pressed="false">静音順</button><button type="button" data-key="care" aria-pressed="false">お手入れ順</button><button type="button" data-key="eco" aria-pressed="false">省エネ順</button><button type="button" data-key="extra" aria-pressed="false">付加機能順</button></div>
 <div class="rk-table-scroll" tabindex="0" role="region" aria-label="スペックスコア一覧"><table class="rk-table" id="rk-score-table"><thead><tr><th scope="col">順位</th><th scope="col">商品</th><th scope="col" aria-sort="none" title="5項目中4項目以上の点があるときだけ、点のある項目の重み平均を出します。"><button type="button" class="rk-th-sort" data-key="total">総合<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" title="空気清浄の適用畳数（最大）（重み 30%）"><button type="button" class="rk-th-sort" data-key="area">適用畳数<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" title="運転音（最も静かな運転モードの値）（重み 20%）"><button type="button" class="rk-th-sort" data-key="quiet">静音<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" title="お手入れ（最初は1点、当てはまるごとに＋1。確認できたものだけ加点）（重み 20%）"><button type="button" class="rk-th-sort" data-key="care">お手入れ<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" title="消費電力（最も静かな運転モードの値）（重み 15%）"><button type="button" class="rk-th-sort" data-key="eco">省エネ<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" title="付加機能（最初は1点、載っている機能ごとに＋1、上限5）（重み 15%）"><button type="button" class="rk-th-sort" data-key="extra">付加機能<span class="rk-arrow" aria-hidden="true"></span></button></th><th scope="col">購入（価格は掲載時点）</th></tr></thead><tbody><tr data-total="4.3" data-area="5" data-quiet="5" data-care="3" data-eco="3" data-extra="5" data-price="50769"><td><span class="rk-rank r1">1</span></td><td class="rk-name"><span class="rk-maker">ダイキン</span><a href="/articles/air-purifier-hikaku/daikin-mck706a-w.html">MCK706A-W</a><span class="rk-maker">加湿ストリーマ空気清浄機（ツインストリーマ＋アクティブプラズマイオン）</span><label class="rk-cmp"><input type="checkbox" class="rk-cmp-box" data-model="MCK706A-W"><span>比較に追加</span></label></td><td><span class="rk-total">4.30</span><span class="rk-stars" aria-hidden="true">★★★★☆</span></td><td>5</td><td>5</td><td>3</td><td>3</td><td>5</td><td><div class="rk-btns"><a class="rk-btn" href="https://af.moshimo.com/af/c/click?a_id=5839061&amp;p_id=170&amp;pc_id=185&amp;pl_id=4062&amp;url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0FLWJHZ4Q" target="_blank" rel="nofollow sponsored noopener"><span class="rk-btn-label">Amazonで見る</span><span class="rk-btn-price">50,769円</span></a><a class="rk-btn rk-rakuten" href="https://hb.afl.rakuten.co.jp/ichiba/57d6ae64.204dcf21.57d6ae65.a61e5932/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Femedama%2F4573535484325%2F&amp;link_type=picttext&amp;ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener"><span class="rk-btn-label">楽天市場で見る</span><span class="rk-btn-price">56,400円</span></a><span class="rk-price-date">2026-09-09時点の価格・広告リンク ・ <span class="rk-ext"><span aria-hidden="true">↗</span> 外部サイトへ移動します</span></span></div></td></tr>
