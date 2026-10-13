@@ -63,3 +63,15 @@
 .pr-color-n{margin:0;font-size:.82rem;font-weight:800;color:var(--prussian-blue)}
 .pr-color .rk-btns{min-width:0}
 @media (max-width:899px) and (min-width:721px){.pr-color .rk-btns{grid-template-columns:1fr 1fr}.pr-color .rk-price-date{grid-column:1/-1}}
+
+/* ---- セールらしい見た目（2026-10-13、オーナー指示「比較記事の型にはめなくていい、もっとポップに」）
+   比較記事の通常テンプレート（ranking.css）は変えず、このページ専用のアクセントだけ prime.css に足す。
+   使う色は CTA ボタン（.rk-btn、Amazonのブランドオレンジ #ff9900、ranking.css 既定）に揃え、新しい色は増やさない。 */
+.pr-sale-pill{display:inline-flex;align-items:center;gap:.35rem;margin:.5rem 0 0;padding:.35rem .9rem;border-radius:999px;background:#ff9900;color:#0d1b2a;font-weight:800;font-size:.85rem;line-height:1.3}
+.pr-sale-pill::before{content:"🔥";font-size:.95em}
+.rk-wrap h2{border-left:6px solid #ff9900;padding-left:.65rem;font-size:1.3rem}
+@media (max-width:720px){.rk-wrap h2{font-size:1.15rem}}
+.pr-notice{border:2px solid #ff9900;border-left-width:8px;border-radius:14px;background:linear-gradient(0deg,var(--paper-raised),var(--paper-raised)),linear-gradient(135deg,#fff6e8,var(--paper-raised) 60%)}
+.pr-notice .notice-icon{font-size:1.5rem}
+.pr-dates>div{border-top-width:5px;border-top-color:#ff9900}
+.pr-checks li::before{background:#ff9900;color:#0d1b2a}
