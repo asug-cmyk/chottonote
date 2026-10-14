@@ -1,0 +1,156 @@
+/* prime.css — プライム感謝祭の特集記事専用（2026-10-09）。ranking.css は変えない。クラスは pr- で始める。
+   色は ranking.css / style.css のトークン（--ink, --ink-soft, --line, --surface-soft, --paper-raised, --prussian-blue, --accent）だけを使う。 */
+/* 前提のチップ: 長い文言は折り返せるように（ranking.css は nowrap） */
+.pr-facts b{white-space:normal}
+/* セール日程 */
+.pr-dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:.8rem 0 .5rem}
+.pr-dates>div{background:var(--paper-raised);border:1px solid var(--line);border-top:3px solid var(--prussian-blue);border-radius:12px;padding:.7rem .9rem}
+.pr-dates dt{font-size:.8rem;font-weight:800;color:var(--prussian-blue);margin:0 0 .2rem}
+.pr-dates dd{margin:0;font-weight:700;font-size:.98rem;line-height:1.6}
+.pr-srcline{margin:.2rem 0 .8rem}
+.pr-venue{margin:.9rem 0;text-align:center}
+.pr-venue .rk-btn{display:inline-flex;min-width:14rem;font-size:1rem;padding:.75rem 1.6rem}
+.pr-notice{margin:.8rem 0 1.6rem}
+.pr-notice strong,.pr-checks strong{color:var(--ink);text-decoration:none;background:none;border:0}
+/* カテゴリの節 */
+.pr-card .rk-maker{margin:0;font-size:.78rem}
+.pr-card .rk-card-main h3{margin:.15rem 0 .5rem}
+.pr-fig{margin:0;position:relative}
+.pr-fig img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line)}
+.pr-imgcap{font-size:.72rem;line-height:1.5;color:var(--ink-soft);margin:.35rem 0 0}
+.rk-rank-badge{white-space:nowrap}
+.pr-point{margin-bottom:.8rem}
+.pr-specs{margin:0 0 .8rem}
+.pr-spec{margin:0;display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.84rem}
+.pr-spec>div{display:grid;grid-template-columns:minmax(6rem,32%) minmax(0,1fr);border-top:1px solid var(--line)}
+.pr-spec>div:first-child{border-top:0}
+.pr-spec dt{margin:0;padding:.4rem .6rem;background:var(--surface-soft);font-weight:700;color:var(--ink);overflow-wrap:anywhere}
+.pr-spec dd{margin:0;padding:.4rem .6rem;overflow-wrap:anywhere;min-width:0}
+.pr-pc{grid-template-columns:1fr}
+.pr-pc p{margin:0}
+.pr-src{margin:.2rem 0 0;line-height:1.7}
+.pr-src a{overflow-wrap:anywhere}
+.pr-src-k{font-weight:700}
+.pr-card .rk-sources{font-size:.78rem}
+.pr-compare{display:grid;gap:.25rem;margin:1rem 0 2rem;padding:.8rem 1rem;background:var(--surface-soft);border:1px solid var(--line);border-left:4px solid var(--prussian-blue);border-radius:12px}
+.pr-compare-a{font-weight:800;color:var(--prussian-blue);overflow-wrap:anywhere}
+.pr-compare-s{font-size:.82rem;color:var(--ink-soft)}
+/* 確認ポイント */
+.pr-checks{list-style:none;counter-reset:pr;margin:.6rem 0 1.4rem;padding:0;display:grid;gap:.6rem}
+.pr-checks li{counter-increment:pr;display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.7rem;align-items:start;background:var(--paper-raised);border:1px solid var(--line);border-radius:12px;padding:.7rem .9rem;font-size:.92rem}
+.pr-checks li::before{content:counter(pr);width:1.8rem;height:1.8rem;border-radius:50%;background:var(--prussian-blue);color:#fff;font-weight:700;display:grid;place-items:center}
+/* 選び方と出典 */
+.pr-method{margin:.6rem 0 1.4rem;display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.9rem}
+.pr-method>div{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr);border-top:1px solid var(--line)}
+.pr-method>div:first-child{border-top:0}
+.pr-method dt{margin:0;padding:.65rem .8rem;background:var(--surface-soft);font-weight:700;color:var(--prussian-blue)}
+.pr-method dd{margin:0;padding:.65rem .8rem;line-height:1.75;overflow-wrap:anywhere}
+@media (max-width:720px){
+  .pr-dates{grid-template-columns:1fr}
+  .pr-method>div{grid-template-columns:1fr}
+  .pr-method dt{padding-bottom:.3rem}
+  .pr-method dd{padding-top:.4rem}
+  .pr-spec>div{grid-template-columns:minmax(5.2rem,34%) minmax(0,1fr)}
+}
+/* 冒頭の導入文は、スマホでも省略しない（ranking.css は3行で切る。この記事の導入文には「比較ではない」などの前提が入っているため） */
+@media (max-width:720px){.rk-head .article-lead{display:block;-webkit-line-clamp:unset;overflow:visible}}
+/* 色違い・順位の注記 */
+.pr-ranknote{margin:0 0 .7rem;font-size:.84rem;background:var(--surface-soft);border:1px solid var(--line);border-radius:8px;padding:.3rem .6rem}
+.pr-ranknote-k{font-weight:800;color:var(--prussian-blue);margin-right:.3rem}
+.pr-colors{display:grid;gap:.7rem}
+.pr-color{display:grid;gap:.3rem;padding-top:.6rem;border-top:1px solid var(--line)}
+.pr-color:first-child{padding-top:0;border-top:0}
+.pr-color-n{margin:0;font-size:.82rem;font-weight:800;color:var(--prussian-blue)}
+.pr-color .rk-btns{min-width:0}
+@media (max-width:899px) and (min-width:721px){.pr-color .rk-btns{grid-template-columns:1fr 1fr}.pr-color .rk-price-date{grid-column:1/-1}}
+
+/* ---- セール特集らしい見た目（2026-10-13、オーナー指示「既存テンプレートは放念していい、ポップに」）
+   GPT-5への相談（handoff/chatgpt/C-BLOG-018.md）の提案をベースに実装。
+   比較記事の通常テンプレート本体（ranking.css）は書き換えず、このページだけ読み込む prime.css の上書きで対応——
+   他のランキング記事は prime.css を読み込まないため影響しない。
+   新しいアクセント2色を追加（GPT提案どおり）: チーム色のベースは紺(--prussian-blue)のまま、
+   Amazonオレンジ(#ff9900)はAmazon購入ボタン専用に残し、それ以外の「特集らしさ」はこの2色でまかなう。 */
+:root{
+  --pr-teal:#10c2b0;
+  --pr-gold:#f6c343;
+}
+
+/* ヒーロー（見出しブロックだけをグラデーションで囲む。下の「前提チップ」「カテゴリ早見」は通常の白背景のまま＝コントラスト確保）
+   GPT-5の実画面レビュー(2026-10-13、ask_gpt_vision.py)で「右下の薄い青地だと白文字のコントラストが怪しい」と
+   指摘されたため、グラデーションの明るい側を紺寄りに寄せてコントラストを確保した。 */
+.pr-hero{
+  background:linear-gradient(135deg,var(--prussian-blue) 0%,#1f4c84 85%),
+             radial-gradient(rgba(16,194,176,.22) 1.5px,transparent 1.5px);
+  background-blend-mode:normal,overlay;
+  background-size:auto,16px 16px;
+  border-radius:18px;
+  padding:1.3rem 1.3rem 1.5rem;
+  margin:0 0 1rem;
+  display:flex;align-items:center;gap:1.2rem;
+}
+.pr-hero-text{flex:1 1 auto;min-width:0}
+.pr-hero-art{flex:0 0 auto;width:38%;max-width:280px}
+.pr-hero-art img{display:block;width:100%;height:auto;border-radius:12px}
+@media (max-width:680px){
+  .pr-hero{flex-direction:column;align-items:stretch}
+  .pr-hero-art{width:60%;max-width:220px;margin:.2rem auto 0}
+}
+.pr-hero .kicker{display:inline-block;background:none;color:var(--pr-gold);font-weight:800;letter-spacing:.03em;padding:0;font-size:.78rem;margin:0}
+.pr-hero h1{color:#fff;margin:.5rem 0 .7rem}
+.pr-hero .article-meta{color:rgba(255,255,255,.9);margin:.2rem 0 .6rem}
+.pr-hero .article-lead{color:rgba(255,255,255,.95);margin:0;max-width:62ch}
+.pr-sale-pill{display:inline-flex;align-items:center;gap:.35rem;margin:.5rem 0 0;padding:.35rem .9rem;border-radius:999px;background:var(--pr-gold);color:#3a2a00;font-weight:800;font-size:.85rem;line-height:1.3}
+.pr-sale-pill::before{content:"🎉";font-size:.95em}
+
+/* 見出し(H2)の左アクセントを、紺一色からチール→ブルーのグラデーションへ */
+.rk-wrap h2{border-left:0;background:linear-gradient(180deg,var(--pr-teal),var(--accent)) left/6px 100% no-repeat;padding-left:.7rem;font-size:1.3rem}
+@media (max-width:720px){.rk-wrap h2{font-size:1.15rem}}
+
+/* セール注記・日程カードはチールで縁取り（オレンジはAmazonボタン専用に残す） */
+.pr-notice{border:2px solid var(--pr-teal);border-left-width:8px;border-radius:14px;background:linear-gradient(0deg,var(--paper-raised),var(--paper-raised)),linear-gradient(135deg,#eafffa,var(--paper-raised) 60%)}
+.pr-notice .notice-icon{font-size:1.5rem}
+.pr-dates>div{border-top-width:5px;border-top-color:var(--pr-teal)}
+
+/* Amazonバナー素材(もしも経由、W-MKT-ASP-013)。GPT-5の実画面レビューで
+   「ラベル+画像だけだと広告が浮いて見える」と指摘されたため、カードで囲んで意図的な配置に見せる */
+.pr-banner{margin:1.2rem 0 1.6rem;padding:1rem;text-align:center;background:var(--paper-raised);border:1px solid var(--line);border-radius:14px}
+.pr-banner-label{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.76rem;font-weight:700;color:var(--ink-soft);margin:0 0 .7rem}
+.pr-banner-label::before,.pr-banner-label::after{content:"";flex:1;max-width:2.5rem;height:1px;background:var(--line)}
+.pr-banner a{display:inline-block;max-width:100%}
+.pr-banner img{max-width:100%;height:auto;border-radius:8px}
+/* プライム会員の案内(セールの使い方の直後)。テキスト+CTAと、もしも発行の実バナー素材(300x250)を並べる */
+.pr-prime{display:flex;align-items:center;gap:1.2rem;margin:1.2rem 0 1.6rem;padding:1rem 1.2rem;background:linear-gradient(135deg,#eafffa,var(--paper-raised) 70%);border:2px solid var(--pr-teal);border-radius:14px}
+.pr-prime-text{flex:1 1 auto;min-width:0}
+.pr-prime-h{font-weight:800;color:var(--prussian-blue);margin:0 0 .3rem;font-size:1.02rem}
+.pr-prime-text p{margin:0 0 .7rem}
+.pr-prime-text .rk-ext{display:block;margin-top:.35rem;font-size:.76rem;color:var(--ink-soft)}
+.pr-prime-banner{flex:0 0 auto}
+.pr-prime-banner img{max-width:100%;height:auto;border-radius:8px}
+@media (max-width:680px){
+  .pr-prime{flex-direction:column}
+  .pr-prime-banner{align-self:center}
+}
+
+/* カテゴリ別の目次(既存のrk-subnav、吸着ナビ)をタブらしく。GPT-5の実画面レビューで
+   「枠線が薄すぎる・タップ領域が狭そう」と指摘されたため、枠線を濃く・パディングを広げた */
+.rk-subnav{background:rgba(255,255,255,.96);border:1.5px solid var(--pr-teal)}
+.rk-subnav a{padding:.65rem .95rem}
+.rk-subnav a.is-current{background:var(--pr-teal);color:#fff;font-weight:800}
+
+/* 商品カード: 横並び1行(ranking.css既定)ではなく、縦積みのカードをグリッドで複数列に
+   (オーナー指示: 既存テンプレートの見た目に縛られなくてよい) */
+/* auto-fit: カテゴリごとに商品数が違っても(2〜7個)、列が余って半端な空白ができない */
+.rk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.pr-card{display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(16,43,73,.05),0 6px 18px rgba(16,43,73,.1)}
+.pr-card .rk-card-media{width:100%}
+.pr-card .pr-fig img{max-width:100%}
+.pr-card .rk-card-main{width:100%}
+.pr-card .rk-card-buy{width:100%;margin-top:auto;padding-top:.8rem}
+.pr-card .rk-btn{width:100%}
+/* ボタンと「外部サイトへ移動します」注記の間が詰まりすぎという指摘(GPT-5実画面レビュー)への対応 */
+.pr-card .rk-btns{gap:.6rem}
+.pr-card .rk-price-date{margin-top:.1rem;font-size:.74rem;opacity:.85}
+@media (prefers-reduced-motion:no-preference){
+  .pr-card{transition:box-shadow .15s ease,transform .15s ease}
+  .pr-card:hover{box-shadow:0 2px 0 rgba(16,43,73,.06),0 10px 24px rgba(16,43,73,.16);transform:translateY(-2px)}
+}
