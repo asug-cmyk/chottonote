@@ -118,6 +118,18 @@
 .pr-banner-label::before,.pr-banner-label::after{content:"";flex:1;max-width:2.5rem;height:1px;background:var(--line)}
 .pr-banner a{display:inline-block;max-width:100%}
 .pr-banner img{max-width:100%;height:auto;border-radius:8px}
+/* プライム会員の案内(セールの使い方の直後)。テキスト+CTAと、もしも発行の実バナー素材(300x250)を並べる */
+.pr-prime{display:flex;align-items:center;gap:1.2rem;margin:1.2rem 0 1.6rem;padding:1rem 1.2rem;background:linear-gradient(135deg,#eafffa,var(--paper-raised) 70%);border:2px solid var(--pr-teal);border-radius:14px}
+.pr-prime-text{flex:1 1 auto;min-width:0}
+.pr-prime-h{font-weight:800;color:var(--prussian-blue);margin:0 0 .3rem;font-size:1.02rem}
+.pr-prime-text p{margin:0 0 .7rem}
+.pr-prime-text .rk-ext{display:block;margin-top:.35rem;font-size:.76rem;color:var(--ink-soft)}
+.pr-prime-banner{flex:0 0 auto}
+.pr-prime-banner img{max-width:100%;height:auto;border-radius:8px}
+@media (max-width:680px){
+  .pr-prime{flex-direction:column}
+  .pr-prime-banner{align-self:center}
+}
 
 /* カテゴリ別の目次(既存のrk-subnav、吸着ナビ)をタブらしく。GPT-5の実画面レビューで
    「枠線が薄すぎる・タップ領域が狭そう」と指摘されたため、枠線を濃く・パディングを広げた */
