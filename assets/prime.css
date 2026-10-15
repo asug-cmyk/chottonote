@@ -160,11 +160,12 @@
    オーナー指示(2026-10-14): 値段はAmazonのサイト通りに%OFFで元の値段と割引後の値段を書く。remarkも同じように赤く書く。
    2026-10-15: このブロックがchottonote-drafts側のprime.cssにしか無く、本番(chottonote)には一度も反映されて
    いなかったことが判明（オーナーから「価格が赤字になっていない」と繰り返し指摘されていた根本原因）。本番に追加。 */
-.pr-remark{display:inline-block;background:var(--pr-red);color:#fff;font-weight:700;font-size:.74rem;padding:.25rem .6rem;border-radius:5px;margin-bottom:.4rem}
-.pr-price{display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap;margin-bottom:.15rem}
-.pr-price-pct{color:var(--pr-red);font-weight:800;font-size:1.05rem}
-.pr-price-now{color:var(--pr-red);font-weight:800;font-size:1.3rem}
-.pr-price-tax{color:var(--pr-red);font-size:.78rem;font-weight:600}
+.pr-remark{display:inline-block;background:var(--pr-teal);color:#fff;font-weight:700;font-size:.74rem;padding:.25rem .6rem;border-radius:5px;margin-bottom:.4rem}
+.pr-price{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin-bottom:.15rem}
+/* オーナー指示(2026-10-15): 値段だけ赤字・大きめに。割引率はバッジ、remarkはteal地にして色分けする */
+.pr-price-pct{display:inline-flex;align-items:center;background:var(--pr-gold);color:#3a2a00;font-weight:800;font-size:.95rem;padding:.2rem .55rem;border-radius:6px;line-height:1.3}
+.pr-price-now{color:var(--pr-red);font-weight:800;font-size:1.6rem}
+.pr-price-tax{color:var(--ink-soft);font-size:.78rem;font-weight:600}
 .pr-price-ref{font-size:.78rem;color:var(--ink-soft);margin-bottom:.5rem}
 .pr-price-ref s{text-decoration:line-through}
 .pr-price-plain{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
