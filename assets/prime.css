@@ -73,6 +73,7 @@
 :root{
   --pr-teal:#10c2b0;
   --pr-gold:#f6c343;
+  --pr-red:#cc0c39;
 }
 
 /* ヒーロー（見出しブロックだけをグラデーションで囲む。下の「前提チップ」「カテゴリ早見」は通常の白背景のまま＝コントラスト確保）
@@ -154,3 +155,16 @@
   .pr-card{transition:box-shadow .15s ease,transform .15s ease}
   .pr-card:hover{box-shadow:0 2px 0 rgba(16,43,73,.06),0 10px 24px rgba(16,43,73,.16);transform:translateY(-2px)}
 }
+
+/* 価格・割引表示（Amazonサイトの見た目に合わせる。参考価格/割引率/現在価格/「売れ行きが早い」等のremark）
+   オーナー指示(2026-10-14): 値段はAmazonのサイト通りに%OFFで元の値段と割引後の値段を書く。remarkも同じように赤く書く。
+   2026-10-15: このブロックがchottonote-drafts側のprime.cssにしか無く、本番(chottonote)には一度も反映されて
+   いなかったことが判明（オーナーから「価格が赤字になっていない」と繰り返し指摘されていた根本原因）。本番に追加。 */
+.pr-remark{display:inline-block;background:var(--pr-red);color:#fff;font-weight:700;font-size:.74rem;padding:.25rem .6rem;border-radius:5px;margin-bottom:.4rem}
+.pr-price{display:flex;align-items:baseline;gap:.4rem;flex-wrap:wrap;margin-bottom:.15rem}
+.pr-price-pct{color:var(--pr-red);font-weight:800;font-size:1.05rem}
+.pr-price-now{color:var(--pr-red);font-weight:800;font-size:1.3rem}
+.pr-price-tax{color:var(--pr-red);font-size:.78rem;font-weight:600}
+.pr-price-ref{font-size:.78rem;color:var(--ink-soft);margin-bottom:.5rem}
+.pr-price-ref s{text-decoration:line-through}
+.pr-price-plain{font-weight:800;font-size:1.15rem;margin-bottom:.5rem}
