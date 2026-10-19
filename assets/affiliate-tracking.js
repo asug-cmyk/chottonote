@@ -9,12 +9,12 @@
   }
 
   function getStore(link) {
-    return link.classList.contains("cta-rakuten") ? "rakuten" : "amazon";
+    return link.classList.contains("cta-rakuten") || link.classList.contains("rk-rakuten") ? "rakuten" : "amazon";
   }
 
   function getCtaPosition(link) {
     if (link.closest(".quick-answer")) return "quick-answer";
-    if (link.closest(".product-card")) return "product-card";
+    if (link.closest(".product-card") || link.closest(".rk-card")) return "product-card";
     if (link.closest(".quick-pick")) return "quick-pick";
     if (link.closest(".final-cta")) return "final-cta";
     if (link.closest("td")) return "table";
@@ -22,9 +22,9 @@
   }
 
   function getProductName(link) {
-    var card = link.closest(".product-card");
+    var card = link.closest(".product-card, .rk-card");
     if (card) {
-      var cardName = card.querySelector(".product-name");
+      var cardName = card.querySelector(".product-name, h2, h3");
       if (cardName) return cardName.textContent.trim();
     }
     var row = link.closest("tr");
@@ -42,11 +42,17 @@
     return "";
   }
 
+  // Buy buttons come in two markups: the older .cta-link buttons and the newer
+  // .rk-btn buttons (most articles today), whose links go through the Moshimo
+  // affiliate redirect. Both are merchant clicks. Before .rk-btn was recognised
+  // here, clicks on those buttons were not counted at all.
+  var BUY_BUTTON = ".cta-link, .rk-btn";
+
   // .cta-link is also used for in-site buttons that route a reader from an
   // explainer into a comparison article. Those are navigation, not affiliate
   // clicks, and counting them inflates affiliate_click with internal traffic.
   // Fire only for links that actually leave for a merchant.
-  var MERCHANT_HOSTS = ["www.amazon.co.jp", "amazon.co.jp", "hb.afl.rakuten.co.jp"];
+  var MERCHANT_HOSTS = ["www.amazon.co.jp", "amazon.co.jp", "hb.afl.rakuten.co.jp", "af.moshimo.com"];
 
   function isMerchantLink(link) {
     try {
@@ -56,8 +62,29 @@
     }
   }
 
+  // Studio devices (the owner's, and the browsers the chats use to check the live
+  // site) mark themselves once by opening any page with ?internal=1; ?internal=0
+  // clears it. A marked browser sends no click events, so affiliate_click and
+  // internal_cta_click count readers only. The flag lives in this browser's
+  // localStorage; nothing is sent anywhere and no identifier is created.
+  var INTERNAL_KEY = "cn_internal";
+
+  function isInternalVisitor() {
+    try {
+      var q = new URLSearchParams(window.location.search).get("internal");
+      if (q === "1") window.localStorage.setItem(INTERNAL_KEY, "1");
+      else if (q === "0") window.localStorage.removeItem(INTERNAL_KEY);
+      return window.localStorage.getItem(INTERNAL_KEY) === "1";
+    } catch (err) {
+      return false;
+    }
+  }
+
+  var internalVisitor = isInternalVisitor();
+
   document.addEventListener("click", function (e) {
-    var link = e.target.closest(".cta-link");
+    if (internalVisitor) return;
+    var link = e.target.closest(BUY_BUTTON);
     if (!link) return;
     if (!isMerchantLink(link)) return;
     if (typeof window.gtag !== "function") return;
@@ -93,6 +120,7 @@
   }
 
   document.addEventListener("click", function (e) {
+    if (internalVisitor) return;
     var link = e.target.closest("a[href]");
     if (!link) return;
     // Only links inside the article body: skips header, language switch,
