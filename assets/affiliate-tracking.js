@@ -15,20 +15,28 @@
   function getCtaPosition(link) {
     if (link.closest(".quick-answer")) return "quick-answer";
     if (link.closest(".product-card") || link.closest(".rk-card")) return "product-card";
-    if (link.closest(".quick-pick")) return "quick-pick";
+    if (link.closest(".quick-pick") || link.closest(".rk-pick")) return "quick-pick";
     if (link.closest(".final-cta")) return "final-cta";
     if (link.closest("td")) return "table";
     return "other";
   }
 
   function getProductName(link) {
-    var card = link.closest(".product-card, .rk-card");
+    var card = link.closest(".product-card, .rk-card, .rk-pick");
     if (card) {
       var cardName = card.querySelector(".product-name, h2, h3");
       if (cardName) return cardName.textContent.trim();
     }
     var row = link.closest("tr");
     if (row) {
+      // Score table (.rk-table): maker is a span, the model name is the link.
+      var rkName = row.querySelector(".rk-name");
+      if (rkName) {
+        var maker = rkName.querySelector(".rk-maker");
+        var model = rkName.querySelector("a");
+        var rkText = ((maker ? maker.textContent : "") + " " + (model ? model.textContent : "")).trim();
+        if (rkText) return rkText;
+      }
       var rowLink = row.querySelector('td a[href^="#product-"]');
       if (rowLink) return rowLink.textContent.trim();
     }
