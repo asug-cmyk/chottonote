@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0M993HGXS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L0M993HGXS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ロボット掃除機が段差で止まる・乗り越えられない原因と対策 | CHOTTO NOTE</title>
+<meta name="description" content="ロボット掃除機が段差の手前で止まる・引き返すのは、物理的に乗り越えられない高さだからとは限りません。公式FAQや報道で確認できた、機種ごとの段差対応の差と、落下防止センサーの汚れや床の色という、確認しておきたいポイントを整理しました。">
+<link rel="canonical" href="https://blog.asdevstudio.com/articles/robot-vacuum-dansa-taisaku.html">
+<meta property="og:title" content="ロボット掃除機が段差で止まる・乗り越えられない原因と対策 | CHOTTO NOTE">
+<meta property="og:description" content="段差の手前で止まるのは、高さの限界だけが理由とは限りません。機種差とセンサーの誤検知、2つの原因を公式情報から整理しました。">
+<meta property="og:image" content="https://blog.asdevstudio.com/assets/articles/robot-vacuum-dansa-taisaku/hero.jpg">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.asdevstudio.com/assets/articles/robot-vacuum-dansa-taisaku/hero.jpg">
+<link rel="icon" href="/assets/favicon.png" type="image/png" />
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/assets/template.css">
+<style>.rk-figure-sm{max-width:360px;margin:20px auto;}.rk-figure-sm img{width:100%;height:auto;border-radius:8px;border:1px solid rgba(0,0,0,0.08);}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CHOTTO NOTE","item":"https://blog.asdevstudio.com/"},{"@type":"ListItem","position":2,"name":"生活家電編","item":"https://blog.asdevstudio.com/category-appliances.html"},{"@type":"ListItem","position":3,"name":"ロボット掃除機が段差で止まる・乗り越えられない原因と対策","item":"https://blog.asdevstudio.com/articles/robot-vacuum-dansa-taisaku.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  {"@type": "Question", "name": "ロボット掃除機が段差の手前で止まるのはなぜですか？", "acceptedAnswer": {"@type": "Answer", "text": "大きく分けて2つの原因があります。1つは機種の物理的な限界(駆動輪の大きさなどで決まる、乗り越えられる段差の高さ)を超えている場合。もう1つは、落下防止センサーの汚れや床の色の影響で、段差を「崖」と誤認識している可能性です(メーカーFAQは誤検知の原因を明示しておらず、編集部の推測を含みます)。"}},
+  {"@type": "Question", "name": "ロボット掃除機が乗り越えられる段差の高さはどのくらいですか？", "acceptedAnswer": {"@type": "Answer", "text": "機種によって大きく異なります。本サイトで比較しているAnker Eufy Auto-Empty C10は、本サイトの比較記事で約17mmまでの段差に対応と掲載しています。一方、段差への対応をうたうRoborock Qrevo Curvは、一層の段差で最大3cm、二層で最大4cmまで乗り越えられるとメディアで報じられています。数値を公表していない機種も多いため、気になる段差があるなら購入前に各メーカーの仕様ページで確認するのが確実です。"}},
+  {"@type": "Question", "name": "落下防止センサーが誤作動するのはどんなときですか？", "acceptedAnswer": {"@type": "Answer", "text": "TP-Link「Tapo」の公式FAQによると、ロボット掃除機には合計3つの落下防止センサーが本体下部の左・右・前にあり、黒い床を苦手とします。センサーが汚れていたり、濃い色の床・ラグの境目にかかったりすると、本当は進める段差でも「崖」と誤認して停止する可能性があります(FAQ自体は誤検知の原因を明示していません)。"}}
+]}
+</script>
+<script src="//statics.8me.jp/a8link/a8linkmgr.js"></script>
+<script>
+ a8linkmgr({
+  "config_id": "Xq3PzSru9UG7RXE5K0j8"
+ });
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="https://www.asdevstudio.com/">
+      <span class="brand-mark"><img class="brand-logo" src="/assets/asdev-mark.png" alt="" /></span><span class="brand-word">AS<span class="dev-tone">DEV</span> Studio</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav">
+        <a href="https://www.asdevstudio.com/projects">Apps</a>
+        <a href="https://www.asdevstudio.com/blog" class="is-active">Blog</a>
+        <a href="https://www.asdevstudio.com/#about">About</a>
+        <a class="contact" href="mailto:asdev.studio00@gmail.com">Contact ↗</a>
+      </nav>
+      <a class="social-link" href="https://x.com/asdevstudio" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.9 2.4h3.3l-7.2 8.2L23.6 21h-6.2l-4.9-6.4L6.8 21H3.5l7.7-8.8L2 2.4h6.3l4.4 5.8 6.2-5.8Zm-2.2 16.9h1.8L8.1 4.3H6.2l10.5 15Z"/></svg>
+      </a>
+      <div class="lang-switch">
+        <a href="/articles/robot-vacuum-dansa-taisaku.html" class="is-active">JA</a>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="/">CHOTTO NOTE</a> <span aria-hidden="true">›</span> <a href="/category-appliances.html">生活家電編</a> <span aria-hidden="true">›</span> <span aria-current="page">ロボット掃除機が段差で止まる・乗り越えられない原因と対策</span>
+    </nav>
+    <div class="article-eyecatch">
+      <span class="eyecatch-label">生活家電編</span>
+    </div>
+    <div class="article-header">
+      <p class="kicker">ロボット掃除機のトラブル</p>
+      <h1>ロボット掃除機が段差で止まる・乗り越えられない原因と対策</h1>
+      <p class="article-meta">公開日: 2026-10-22 / 更新日: 2026-10-22</p>
+      <p class="article-lead">ロボット掃除機が、玄関の上がり框や部屋の境目の段差で止まってしまう、または避けて引き返してしまう。その原因は「段差が高すぎて物理的に無理」だけとは限りません。メーカーの公式情報や報道で確認できた範囲で、原因を整理しました。</p>
+    </div>
+    <section class="article-hero is-single">
+      <div class="article-hero-main">
+        <img src="/assets/articles/robot-vacuum-dansa-taisaku/hero.jpg" data-photo-source="generated-ok" alt="木目調の床とタイルの境目にある小さな段差の手前で止まっている白いロボット掃除機を、床に近い低い角度から撮影した室内の様子" width="1400" height="788">
+      </div>
+    </section>
+    <div class="article-body">
+      <div class="methodology-note">
+        <span class="methodology-label">この記事の調査方法について</span>
+        TP-Link「Tapo」の公式FAQページ、および段差への対応を報じたメディア記事(RealSound)を実際に開いて、記載のある内容だけを整理した解説記事です。編集部が実機で段差の乗り越えを検証した記事ではありません。メーカーが数値を公表していない機種については、推測の数値を書いていません。
+      </div>
+      <p>ロボット掃除機を使っていて、「段差の手前でピタッと止まる」「段差に近づくと向きを変えて避けていく」という経験をした人は少なくないはずです。考えられる原因は主に2つあります。<strong>1つは機種ごとの物理的な限界(乗り越えられる段差の高さ)を超えている場合、もう1つは、センサーの汚れや床の色の影響で段差を実際より危険だと判断している可能性</strong>です。どちらで止まっているかによって、対策が変わります。</p>
+      <p>そもそもどの機種を選ぶかという比較は<a href="/articles/robot-vacuum-hikaku.html">ロボット掃除機おすすめ比較</a>にまとめています。この記事は、その前段にある「なぜ段差で止まるのか」だけを切り出したものです。</p>
+      <h2 id="takasa">原因1: 乗り越えられる段差の高さは、機種によって大きく違う</h2>
+      <p>ロボット掃除機が乗り越えられる段差の高さは、駆動輪の大きさや車体の構造によって機種ごとに決まっています。そのため、ある機種では問題なく通過できる段差でも、別の機種では物理的に乗り越えられないことがあります。</p>
+      <div class="notice">
+        <span class="notice-icon" aria-hidden="true">📋</span>
+        <p>本サイトの比較記事では、<strong>Anker Eufy Robot Vacuum Auto-Empty C10</strong> について「段差: 高さ約17mmまで乗り越え」と掲載しています。<br>
+        <small>出典: <a href="/articles/robot-vacuum-hikaku.html">本サイト ロボット掃除機おすすめ比較</a>(Anker公式仕様にもとづき掲載)</small></p>
+      </div>
+      <p>一方で、段差への対応を強みにしている上位モデルも登場しています。</p>
+      <div class="notice">
+        <span class="notice-icon" aria-hidden="true">📋</span>
+        <p>「最大4cmまでの二層の段差(一層の段差は最大3cmまで)の乗り越えだ」<br>
+        <small>出典: RealSound「Roborock Qrevo Curv」紹介記事(2024年12月11日の記事、2026-10-22 閲覧)</small></p>
+      </div>
+      <p>この2つの例だけでも、約17mmに対し、一層で最大3cm(約1.8倍)、二層で最大4cmと、かなりの開きがあります。<strong>「ロボット掃除機は段差に弱い」と一括りにはできず、機種によって対応できる高さの差がかなり大きい</strong>ということです。すべての機種が段差の高さを公表しているわけではないので、玄関の上がり框や部屋の境目の段差が気になる場合は、購入前に候補機種の仕様ページで段差対応の数値があるかを確認し、無ければメーカーに問い合わせるか、実際の段差の高さを採寸しておくのが確実です。</p>
+      <h2 id="sensor">原因2(可能性): センサーの汚れや床の色で、段差を「崖」と誤認している</h2>
+      <p>物理的には乗り越えられる高さのはずなのに止まってしまう場合、落下防止センサー(段差センサー)の誤作動が原因になっていることがあります。これは階段からの落下を防ぐための安全機能で、本体の下部についたセンサーが「この先に床があるか」を確認しています。</p>
+      <div class="notice">
+        <span class="notice-icon" aria-hidden="true">📋</span>
+        <p>「ロボット掃除機には合計3つの落下防止センサーがあり、左・右・前の下部に搭載しています」「ロボット掃除機は黒い床を苦手とします」<br>
+        <small>出典: TP-Link「Tapo」公式FAQ(2026-10-22 閲覧)</small></p>
+      </div>
+      <figure class="rk-figure-sm">
+        <img src="/assets/articles/robot-vacuum-dansa-taisaku/inline/sensor-gaibu.jpg" alt="ロボット掃除機の底面にあるセンサーが、段差の縁に向けて下向きに検知している様子を示したフラットイラスト" loading="lazy" width="1200" height="675">
+      </figure>
+      <p>同FAQでは、センサーの汚れを疑う場合の確認方法として、本体をひっくり返して湿った布でセンサー部分を拭く、という対処が案内されています。また、黒い床は苦手とされています。<strong>これらを踏まえると、センサーの汚れや濃い色の床が、段差を「崖」と誤って判断する原因になっている可能性があります</strong>(FAQ自体は誤検知の原因を明示していません。編集部の推測です)。段差の高さだけでなく、<strong>その手前の床やラグの色</strong>も、止まる・止まらないに関わってくる可能性があります。</p>
+      <h2 id="shogaibutsu">原因3: 段差そのものではなく、コードや小物に乗り上げている</h2>
+      <p>段差だと思っていても、実際には床に置いてあるコード類や靴下などの小物に乗り上げて止まっているケースもあります。<a href="/articles/robot-vacuum-hikaku.html">本サイトの比較記事</a>でも、床に置いてあるコード類や小物を事前に片付けておく必要があること、段差や玄関の上がり框、ラグの厚い縁は機種によっては乗り越えられない可能性があることを、一般的な注意点として案内しています。段差の手前で止まる場所が毎回同じなら、まずその場所に小物が落ちていないか、ラグの縁がめくれていないかを確認すると、原因の切り分けがしやすくなります。</p>
+      <h2 id="taisaku">対策</h2>
+      <ul class="trust-checklist">
+        <li><b>段差の高さを確認する</b> → 気になる段差を実際に採寸し、候補機種が公式に対応高さを示していないか確認する</li>
+        <li><b>センサーを定期的に拭く</b> → 本体下部の左・右・前にある落下防止センサーを湿った布で拭く</li>
+        <li><b>段差の手前の床の色に注意する</b> → 黒い床は苦手とされているため、段差の手前が黒い床・濃い色のラグなら注意する</li>
+        <li><b>進入禁止エリアを設定する</b> → アプリでエリア設定ができる機種は、どうしても乗り越えられない段差を立ち入り禁止にしておく</li>
+        <li><b>床のコード・小物を片付ける</b> → 運転前に、段差の手前に限らず床全体を片付けておく</li>
+      </ul>
+      <h2 id="matome">まとめ</h2>
+      <p>ロボット掃除機が段差で止まる原因は、「高さの限界を超えている」場合と「センサーの誤作動で本来は進める段差を避けている」場合の、大きく2通りに分かれます。前者は機種選びの時点である程度わかりますが、後者はセンサーの清掃や床の色への注意で改善できることがあります。どちらが原因かを切り分けてから対策すると、無駄が少なくなります。</p>
+      <p>機種ごとの比較は<a href="/articles/robot-vacuum-hikaku.html">ロボット掃除機おすすめ比較、スペックスコアで選ぶ4製品</a>へどうぞ。</p>
+      <h2 id="sources">参照した情報</h2>
+      <ul>
+        <li>TP-Link「Tapo」公式FAQ(落下防止センサー) — <a href="https://www.tapo.com/jp/faq/254/" target="_blank" rel="noopener">tapo.com</a></li>
+        <li>RealSound「Roborock Qrevo Curv」紹介記事(段差対応の数値) — <a href="https://realsound.jp/tech/2024/12/post-1868113.html" target="_blank" rel="noopener">realsound.jp</a></li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--ink-soft)">2026年10月22日に閲覧しました。公開内容は変更される場合があります。Anker Eufy Auto-Empty C10の段差対応(約17mm)は、本サイトのロボット掃除機比較記事に掲載済みの、メーカー公式仕様にもとづく数値です。</p>
+      <h2 id="related">関連記事</h2>
+      <ul>
+        <li><a href="/articles/robot-vacuum-hikaku.html">ロボット掃除機おすすめ比較、スペックスコアで選ぶ4製品</a></li>
+      </ul>
+    </div>
+</main>
+<footer class="site-footer">
+<nav>
+<a href="/disclosure.html">当サイトについて</a>
+<a href="/privacy.html">プライバシーポリシー</a>
+</nav>
+<p>&copy; 2026 CHOTTO NOTE</p>
+</footer>
+<script src="/header.js" defer></script>
+<script src="/toc.js" defer></script>
+<script src="/assets/affiliate-tracking.js" defer></script>
+</body>
+</html>
