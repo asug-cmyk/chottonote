@@ -130,7 +130,7 @@ def check_side(en):
 
 def main():
     check_side(en=False)
-    check_side(en=True)
+    # 英語版は 2026-10-28 に廃止（/en/ は vercel.json で日本語版へ転送）
     if FAIL:
         print('FAIL  一覧の食い違いが見つかりました')
         for f in FAIL:
