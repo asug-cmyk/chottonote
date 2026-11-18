@@ -8,13 +8,18 @@
     return (match[1] ? "en/" : "") + match[2];
   }
 
-  // A8.net links (FLEXISPOT, SwitchBot "公式サイトで見る") point at the merchant
-  // in the HTML; the A8 link manager rewrites them to px.a8.net at run time, so
-  // both the merchant hosts and *.a8.net count, and are reported as store "a8".
+  // A8.net links (FLEXISPOT, SwitchBot, Somresta, Frecious, Onamae Server "公式サイトで見る").
+  // The HTML holds the merchant's own URL; the A8 link manager (a8linkmgr.js)
+  // rewrites it to px.a8.net at run time. Count both forms as store "a8": the
+  // rewritten *.a8.net URL, or the original URL when its domain is on the A8
+  // programme list below. Any other official domain is not counted (as before).
+  var A8_MERCHANT_DOMAINS = [
+    "flexispot.jp", "www.switchbot.jp", "somresta.jp",
+    "www.frecious.jp", "every.frecious.jp", "www.onamae-server.com"
+  ];
+
   function isA8Host(host) {
-    return host === "a8.net" || host.slice(-7) === ".a8.net" ||
-      host === "flexispot.jp" || host === "www.flexispot.jp" ||
-      host === "switchbot.jp" || host === "www.switchbot.jp";
+    return host === "a8.net" || host.slice(-7) === ".a8.net" || A8_MERCHANT_DOMAINS.indexOf(host) !== -1;
   }
 
   function getStore(link) {
