@@ -8,8 +8,23 @@
     return (match[1] ? "en/" : "") + match[2];
   }
 
+  // A8.net links (FLEXISPOT, SwitchBot "公式サイトで見る") point at the merchant
+  // in the HTML; the A8 link manager rewrites them to px.a8.net at run time, so
+  // both the merchant hosts and *.a8.net count, and are reported as store "a8".
+  function isA8Host(host) {
+    return host === "a8.net" || host.slice(-7) === ".a8.net" ||
+      host === "flexispot.jp" || host === "www.flexispot.jp" ||
+      host === "switchbot.jp" || host === "www.switchbot.jp";
+  }
+
   function getStore(link) {
-    return link.classList.contains("cta-rakuten") || link.classList.contains("rk-rakuten") ? "rakuten" : "amazon";
+    if (link.classList.contains("cta-rakuten") || link.classList.contains("rk-rakuten")) return "rakuten";
+    try {
+      if (isA8Host(new URL(link.href, window.location.href).hostname)) return "a8";
+    } catch (err) {
+      /* fall through to the default */
+    }
+    return "amazon";
   }
 
   function getCtaPosition(link) {
@@ -64,7 +79,8 @@
 
   function isMerchantLink(link) {
     try {
-      return MERCHANT_HOSTS.indexOf(new URL(link.href, window.location.href).hostname) !== -1;
+      var host = new URL(link.href, window.location.href).hostname;
+      return MERCHANT_HOSTS.indexOf(host) !== -1 || isA8Host(host);
     } catch (err) {
       return false;
     }
